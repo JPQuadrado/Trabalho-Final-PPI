@@ -1,0 +1,44 @@
+body{
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5em;
+    overflow:hidden;
+    margin: 2%;
+}
+
+main{
+    background-color: aqua;
+    float: right;
+    width: 49%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 50%;
+    border-radius: 15px;
+}
+
+
+.div_form > *{
+    margin: 0 auto;
+}
+
+#div_logar{
+    
+}
+
+#div_cadastrar{
+
+}
+
+#bt_send{
+
+}
+
+#div_info{  
+    border-radius: 15px;
+    background-color: aliceblue;
+    float: left;
+    width: 49%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
