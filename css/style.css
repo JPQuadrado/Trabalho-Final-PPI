@@ -1,0 +1,45 @@
+body{
+    background-color: green;
+    margin: 0 auto;
+    padding: 0;
+    line-height: 1.5;   
+}
+
+#menuNav{
+    background-color: #000000;
+    list-style: none;
+}
+
+#menuNav ul{
+    padding: 0;
+    margin: 0;
+}
+
+#menuNav ul li{
+    display: inline;
+}
+
+#menuNav ul li a{
+    color: white;
+    text-decoration: none;
+    padding: 1.5em;
+    display: inline-block;
+    
+    position: relative;
+    right: -83.5%;
+}
+
+#menuNav ul li a:hover{
+    background-color: blue;
+    transition: 0.7s;
+}
+
+#menuNav ul li img{
+    width: 4em;
+    height: 4em;
+
+    position: absolute;
+    transform: translateY(0%) translateX(10%);
+
+    box-sizing: border-box;
+}
