@@ -5,37 +5,70 @@ body{
     line-height: 1.5;   
 }
 
-#menuNav{
+main{
+    width: 60%;
+    margin: 15em auto;
+}
+
+
+#menu-nav{
     background-color: black;
     padding: 0;
     margin: 0;
     height: 4em;
 }
 
-#menuNav ul {
+#menu-nav ul {
     list-style: none;
     margin: 0;
     float: right;
 }
 
-#menuNav ul li {
+#menu-nav ul li {
     float: left;
 }
 
-#menuNav ul li a {
+#menu-nav ul li a {
     color: white;
     text-decoration: none;
     padding: 1.24em;
     display: inline-block;
 }
 
-#menuNav ul li a:hover{
+#menu-nav ul li a:hover{
     background-color: blue;
     transition: 0.7s;
 }
 
-#menuNav img{
+#menu-nav img{
     float: left;
     width: 3.5em;
     margin: 0 0.5em;
+}
+
+#search-div-input{
+    width: 80%;
+    float: left;
+    margin: 0;
+}
+
+#search-div-input input{
+    width: 100%;
+    padding: 0.5em;
+    margin: 0;
+    border-radius: 5px;
+}
+
+#search-div-btn{
+    width: 18%;
+    float: right;
+    text-align: center;
+    margin: 0;
+}
+
+#search-div-btn button{
+    padding: 0.5em 0;
+    width: 100%;
+    margin: 0;
+    border-radius: 5px;
 }
