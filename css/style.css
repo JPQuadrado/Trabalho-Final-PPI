@@ -10,12 +10,13 @@ main{
     margin: 15em auto;
 }
 
-
 #menu-nav{
     background-color: black;
     padding: 0;
     margin: 0;
-    height: 4em;
+    display: inline-block;
+    height: 25%;
+    width: 100%;
 }
 
 #menu-nav ul {
@@ -43,32 +44,36 @@ main{
 #menu-nav img{
     float: left;
     width: 3.5em;
-    margin: 0 0.5em;
+    margin: 0;
+}
+
+#search{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #search-div-input{
     width: 80%;
     float: left;
-    margin: 0;
 }
 
 #search-div-input input{
-    width: 100%;
     padding: 0.5em;
     margin: 0;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #search-div-btn{
-    width: 18%;
-    float: right;
-    text-align: center;
+    float: left;
+    width: 20%;
     margin: 0;
 }
 
 #search-div-btn button{
-    padding: 0.5em 0;
-    width: 100%;
-    margin: 0;
     border-radius: 5px;
+    margin: 0 10%;
+    box-sizing: border-box;
 }
