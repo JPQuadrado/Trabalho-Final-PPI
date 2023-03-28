@@ -1,11 +1,15 @@
-body{
-    font-family:'Courier New', Courier, monospace;
+body {
+    font-family: 'Courier New', Courier, monospace;
     line-height: 1.5em;
-    overflow:hidden;
+    overflow: hidden;
     margin: 2%;
 }
 
-main{
+.container_centro {
+    background-color: greenyellow;
+}
+
+main {
     background-color: aqua;
     float: right;
     width: 49%;
@@ -17,25 +21,35 @@ main{
 }
 
 
-.div_form > *{
+.div_form>* {
+    width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
-#div_logar{
-    
-}
-
-#div_cadastrar{
-
-}
-
-#bt_send{
-
-}
-
-#div_info{  
+#div_logar {
+    background-color: lightblue;
+    padding: 1rem;
     border-radius: 15px;
-    background-color: aliceblue;
+    margin: 1rem auto;
+}
+
+#div_cadastrar {
+    background-color: lightblue;
+    padding: 1rem;
+    border-radius: 15px;
+
+}
+
+.bt_sent {
+    width: 100%;
+    margin: 0.5rem auto;
+    box-sizing: border-box;
+}
+
+#div_info {
+    border-radius: 15px;
+    background-color: black;
     float: left;
     width: 49%;
     height: 100%;
