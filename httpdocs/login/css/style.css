@@ -2,22 +2,26 @@ body {
     font-family: 'Courier New', Courier, monospace;
     line-height: 1.5em;
     overflow: hidden;
-    margin: 2%;
+    margin: 5%;
+
 }
 
 .container_centro {
-    background-color: greenyellow;
+    width: 60%;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 main {
-    background-color: aqua;
     float: right;
-    width: 49%;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 10px;
     max-width: 50%;
-    border-radius: 15px;
 }
 
 
@@ -38,6 +42,7 @@ main {
     background-color: lightblue;
     padding: 1rem;
     border-radius: 15px;
+    box-sizing: border-box;
 
 }
 
@@ -49,10 +54,41 @@ main {
 
 #div_info {
     border-radius: 15px;
-    background-color: black;
+    background-color: lightblue;
     float: left;
-    width: 49%;
+    width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 10px;
+    max-width: 50%;
+}
+
+#div_info img{
+  position: relative;
+  width: 100%;
+  max-width: 70%;
+
+  /*
+    Colocar credito na imagem, entende se possivel embeded
+
+    Trade by MRK from <a href="https://thenounproject.com/browse/icons/term/trade/" target="_blank" title="Trade Icons">Noun Project</a>
+
+    Sujestão ou imposição site.
+  */
+}
+
+@media (max-width: 600px){
+
+  .container_centro {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  #div_info {
+    visibility: hidden;
+  }
+
+  main {
+    padding: 10px;
+  }
 }
