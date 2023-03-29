@@ -1,13 +1,17 @@
 body{
     background-color: green;
     margin: 0;
-    padding: 0;
-    line-height: 1.5;   
+    line-height: 1.5;
+    height: 100vh;
 }
 
 main{
-    width: 60%;
-    margin: 15em auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
 }
 
 #menu-nav{
@@ -47,15 +51,23 @@ main{
     margin: 0;
 }
 
-#search{
+#form-search{
+    overflow: hidden;
     width: 100%;
-    display: inline-block;
+    margin: 0;
+}
+
+#search-div{
     text-align: center;
-    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 #search-div-input{
-    width: 80%;
+    width: 80%; 
     float: left;
 }
 
@@ -63,17 +75,17 @@ main{
     padding: 0.5em;
     margin: 0;
     border-radius: 5px;
+    width: 100%;
     box-sizing: border-box;
 }
 
 #search-div-btn{
     float: left;
     width: 20%;
-    margin: 0;
 }
 
 #search-div-btn button{
     border-radius: 5px;
-    margin: 0 10%;
-    box-sizing: border-box;
+    margin: 0 5%;
+    float: inline-start;
 }

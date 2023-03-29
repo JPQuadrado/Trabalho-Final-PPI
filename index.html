@@ -12,21 +12,24 @@
         <nav id="menu-nav">
             <a href="#"><img src="img/logo.png" alt=""></a>
             <ul>
-                <li><a href="http://">Home</a></li>
-                <li><a href="http://">Cadastro</a></li>
-                <li><a href="">Login</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="/cadastro">Cadastro</a></li>
+                <li><a href="/login">Login</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <div id="search">
-            <div id="search-div-input">
-                <input type="text" name="search" id="search" placeholder="Pesquise algo aqui">
-            </div>
-            <div id="search-div-btn">
-                <button type="submit"><img src="img/lupa.png" alt=""></button>
-            </div>
+        <div id="search-div">
+            <form id="form-search" action="buscaProduto.php" method="get">
+                <div id="search-div-input">
+                    <label for="search"></label>
+                    <input type="text" name="search" id="search" placeholder="Pesquise algo aqui">
+                </div>
+                <div id="search-div-btn">
+                    <button type="submit"><img src="img/lupa.png" alt=""></button>
+                </div>
+            </form>
         </div>
     </main>
 </body>
