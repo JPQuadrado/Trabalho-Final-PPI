@@ -69,14 +69,16 @@ main{
 #search-div-input{
     width: 80%; 
     float: left;
+    text-decoration: none;
 }
 
 #search-div-input input{
-    padding: 0.5em;
-    margin: 0;
+    padding: 0.7em;
+    margin: 0.8% 0;
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
+    border: none;
 }
 
 #search-div-btn{
@@ -86,6 +88,8 @@ main{
 
 #search-div-btn button{
     border-radius: 5px;
-    margin: 0 5%;
-    float: inline-start;
+    margin: 0% 8%;
+    float: left;
+    border: none;
+    padding: 0.5em;
 }
