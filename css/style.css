@@ -14,6 +14,7 @@ main{
     height: 80%;
     padding: 0;
     margin: 0;
+    background-color: aqua;
 }
 
 #menu-nav{
@@ -94,4 +95,8 @@ main{
     float: left;
     border: none;
     padding: 0.5em;
+}
+
+#div-anuncio-detalhado{
+    background-color: white;
 }
