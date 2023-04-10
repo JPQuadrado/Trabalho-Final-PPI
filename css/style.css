@@ -6,12 +6,14 @@ body{
 }
 
 main{
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 80%;
+    padding: 0;
+    margin: 0;
 }
 
 #menu-nav{
@@ -36,7 +38,7 @@ main{
 #menu-nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 1.24em;
+    padding: 1.2em;
     display: inline-block;
 }
 
@@ -53,8 +55,8 @@ main{
 
 #form-search{
     overflow: hidden;
-    width: 100%;
-    margin: 0;
+    width: 50%;
+    margin: 0 auto;
 }
 
 #search-div{
@@ -88,7 +90,7 @@ main{
 
 #search-div-btn button{
     border-radius: 5px;
-    margin: 0% 8%;
+    margin: 0.8% 8%;
     float: left;
     border: none;
     padding: 0.5em;
