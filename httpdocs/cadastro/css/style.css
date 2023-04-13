@@ -1,5 +1,56 @@
-.div_form>* {
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+
+body{
+    font-family: 'Anuphan', sans-serif;
+    overflow:scroll;
+    margin: 2%;
+}
+
+h1{
+    padding: 1rem;
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    text-align: center;
 }
+
+.div_form{
+    padding: 0.5rem;
+}
+
+.div_form>* {
+    font-size: large;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: block;
+    padding: 0.2rem;
+}
+
+form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.bt_sent {
+    background-color: darkblue;
+    text-decoration: none;
+    color: white;
+    border-radius: 20px;
+    border: none;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0.7rem;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: large;
+}
+
+main {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
