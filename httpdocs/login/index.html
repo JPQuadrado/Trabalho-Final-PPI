@@ -10,19 +10,13 @@
 </head>
 
 <body>
-    <header>
-        <!-- Espaço para logo -->
-    </header>
-
-    
-
     <div class="container_centro">
         <h1>Login</h1>
 
         <main>
             <div id="div_logar">
                 <!-- Solicitar Logar -->
-                <form action="application/x-www-form-urlencoded" method="post">
+                <form action="logar.php" enctype="application/x-www-form-urlencoded" method="post">
 
                     <div class="div_form">
                         <label for="email"> E-mail </label>
@@ -42,7 +36,7 @@
 
             <div id="div_cadastrar">
                 <!-- Cadastrar - link-->
-                <p>Clique aqui para cadastrar: <a href="/cadastro">Cadastre-se</a></p>
+                <p><a href="/cadastro">Clique aqui para cadastrar</a></p>
             </div>
         </main>
 
@@ -50,7 +44,7 @@
         <div id="div_info">
             <!-- Informações ou imagens para incentivar o uso e cadastro -->
             <h2>Entre na sua conta</h2>
-            <img src="img/trade.png" alt="Trade Icon">
+            <span id="emoji_logo">&#129309;</span>
             <p id="catch_frase">Aqui, as vendas acontecem</p>
         </div>
 
