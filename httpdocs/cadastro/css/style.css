@@ -47,10 +47,32 @@ form{
     font-size: large;
 }
 
+a{
+    text-decoration: none;
+}
+
+#emoji_solo_logo{
+  font-family: 'Inconsolata', monospace;
+  font-weight: bold;
+  color: black;
+  font-size: 40px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 main {
     width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
+
+@media (max-width: 900px) {
+    #emoji_solo_logo{
+
+        margin: 0 auto;
+        font-size: 30px;
+    }
+      
+}
