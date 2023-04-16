@@ -1,5 +1,4 @@
-
-  @import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
 
 body {
   font-family: 'Anuphan', sans-serif;
@@ -10,7 +9,7 @@ body {
 
 }
 
-h1{
+h1 {
   padding: 1rem;
   width: 100%;
   margin: 0 auto;
@@ -36,11 +35,11 @@ main {
   max-width: 50%;
 }
 
-form{
+form {
   padding: 1rem;
 }
 
-.div_form{
+.div_form {
   padding: 0.5rem;
 }
 
@@ -82,7 +81,7 @@ form{
 #div_info {
   text-align: center;
   border-radius: 15px;
-  
+
   float: left;
   width: 100%;
   height: 100%;
@@ -91,28 +90,28 @@ form{
   max-width: 50%;
 }
 
-#div_info img {
-  position: relative;
-  width: 100%;
-  max-width: 70%;
-
-  /*
-    Colocar credito na imagem, entende se possivel embeded
-
-    Trade by MRK from <a href="https://thenounproject.com/browse/icons/term/trade/" target="_blank" title="Trade Icons">Noun Project</a>
-
-    Sujestão ou imposição site.
-  */
-}
-
 a {
-  text-decoration:dashed;
+  text-decoration: dashed;
   color: #FA7921;
 }
 
-#emoji_logo{
-  font-size: 40px;
-  margin-left: 5px;
+#div_info h2 {
+  margin: 1rem;
+  padding: 1rem;
+
+}
+
+#catch_frase {
+  margin: 1rem;
+  padding: 1rem;
+}
+
+#emoji_logo {
+  display: block;
+  box-sizing: border-box;
+  font-size: 7rem;
+  /* or any other size you want */
+  margin: 4rem auto;
 }
 
 @media (max-width: 900px) {
@@ -124,13 +123,15 @@ a {
   }
 
   #div_info {
-    display: none; /* oculta completamente o elemento */
+    display: none;
+    /* oculta completamente o elemento */
   }
 
   main {
     padding: 10px;
-    width: 100%; /* ocupa toda a largura disponível */
+    width: 100%;
+    /* ocupa toda a largura disponível */
     max-width: 100%
   }
-  
+
 }
