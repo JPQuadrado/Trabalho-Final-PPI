@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&family=Inconsolata:wght@700&display=swap%27');
 
 body{
     background-color: white;
@@ -17,6 +18,14 @@ main{
 header{
     position: sticky;
     top: 0;
+}
+
+#emoji{
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+    color: white;
+    font-size: 40px;
+    margin-left: 5px;
 }
 
 #menu-nav{
@@ -116,7 +125,7 @@ header{
         padding: 0.5em 15%;
         margin: 5% 30%;
     }
-    
+
     #search-div-btn button:hover{
         background-color: #FA7921;
         transition: 0.7s;
