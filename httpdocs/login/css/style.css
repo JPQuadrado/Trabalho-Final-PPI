@@ -2,7 +2,7 @@
 
 body{
   background-color: white;
-  margin: 0;
+  margin: 2%;
   line-height: 1.5;
   height: 100vh;
   padding: 0;
@@ -11,11 +11,12 @@ body{
 }
 
 h1 {
-  padding: 1rem;
+  padding: 2rem;
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
   text-align: center;
+  visibility: hidden;
 }
 
 .container_centro {
@@ -63,7 +64,7 @@ form {
 
 #div_cadastrar {
   text-align: center;
-  padding: 1rem;
+  padding: 0;
   border-radius: 15px;
   box-sizing: border-box;
 }
@@ -105,11 +106,6 @@ a {
 
 }
 
-#catch_frase {
-  margin: 1rem;
-  padding: 1rem;
-}
-
 #emoji_info {
   display: block;
   box-sizing: border-box;
@@ -119,48 +115,16 @@ a {
 }
 
 header{
-  position: sticky;
-  top: 0;
+  text-align: center;
 }
 
-#menu-nav{
-  background-color: black;
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  height: 25%;
-  width: 100%;
-}
-
-#menu-nav ul {
-  list-style: none;
-  margin: 0;
-  float: right;
-}
-
-#menu-nav ul li {
-  float: left;
-}
-
-#menu-nav ul li a {
-  color: white;
-  text-decoration: none;
-  padding: 1.2em;
-  display: inline-block;
-  font-weight: bold;
-}
-
-#menu-nav ul li a:hover{
-  background-color: #FA7921;
-  transition: 0.7s;
-}
-
-#emoji{
+#emoji_solo_logo{
   font-family: 'Inconsolata', monospace;
   font-weight: bold;
-  color: white;
+  color: black;
   font-size: 40px;
-  margin-left: 5px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 
