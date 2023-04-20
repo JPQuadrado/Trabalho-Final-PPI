@@ -1,20 +1,15 @@
-const search = document.getElementById("search");
+const search = document.getElementById("search-div-btn-advanced");
 const divAdvanced = document.getElementById("search-advanced");
-let searchAc = false, divAc = false;
+let foo = false;
 
 search.onclick = function(){
-    divAdvanced.style.visibility = 'visible'
+    divAdvanced.style.display = 'block'
+    if(foo){
+        divAdvanced.style.display = 'none'
+        foo = false;
+    }
+    else{
+        divAdvanced.style.display = 'block';
+        foo = true;
+    }
 };
-
-search.addEventListener("onfocusout", function(){
-    divAdvanced.style.visibility = 'visible'
-
-});
-
-divAdvanced.addEventListener("mouseleave", function(){
-    divAdvanced.style.visibility = 'hidden';
-});
-
-if(searchAc){
-    divAdvanced.style.visibility = 'hidden';
-}

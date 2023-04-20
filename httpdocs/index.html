@@ -19,7 +19,7 @@
             </ul>
         </nav>
     </header>
-
+    
     <main>
         <div id="search-div">
             <form id="form-search" action="buscaProduto.php" method="post">
@@ -45,10 +45,33 @@
                                 <input type="number" name="price-max" id="price-max" step="any">
                             </div>
                         </div>
+                        <div>
+                            <label>Categoria: </label>
+                            <div>
+                                <input type="checkbox" name="todas" id="todas" value="todas" checked>
+                                <label for="todas">Todas categorias</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="copos" id="copos" value="copos">
+                                <label for="copos">Copos</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="cozinha" id="cozinha" value="cozinha">
+                                <label for="cozinha">Cozinha</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="pecas" id="pecas" value="pecas">
+                                <label for="pecas">Peças</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="search-div-btn">
                     <button type="submit"><img src="img/lupa.png" alt=""></button>
+                </div>
+
+                <div id="search-div-btn-advanced">
+                    <button><span>&#10133;</span></button>
                 </div>
             </form>
         </div>
