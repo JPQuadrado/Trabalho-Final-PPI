@@ -22,10 +22,30 @@
 
     <main>
         <div id="search-div">
-            <form id="form-search" action="buscaProduto.php" method="get">
+            <form id="form-search" action="buscaProduto.php" method="post">
                 <div id="search-div-input">
-                    <label for="search"></label>
                     <input type="text" name="search" id="search" placeholder="Pesquise algo aqui">
+                    
+                    <div id="search-advanced">
+                        <div id="search-advanced-title">
+                            <input type="radio" name="radio" id="search-title" value="search-title">
+                            <label for="search-title">Título</label>
+                        </div>
+                        <div id="search-advanced-description">
+                            <input type="radio" name="radio" id="search-description" value="search-description">
+                            <label for="search-description">Descrição</label>
+                        </div>
+                        <div id="search-advanced-price">
+                            <div>
+                                <label for="price-min">Preço minimo: </label>
+                                <input type="number" name="price-min" id="price-min" step="any">
+                            </div>
+                            <div>
+                                <label for="price-max">Preço máximo: </label>
+                                <input type="number" name="price-max" id="price-max" step="any">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div id="search-div-btn">
                     <button type="submit"><img src="img/lupa.png" alt=""></button>
@@ -33,5 +53,7 @@
             </form>
         </div>
     </main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
