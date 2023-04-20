@@ -8,11 +8,13 @@ body{
     height: 100vh;
     padding: 0;
     font-family: 'Anuphan', sans-serif;
-    overflow: none;
 }
 
 main{
     margin: 0 auto;
+    height: 100vh;
+    padding: 0;
+    overflow: none;
 }
 
 header{
@@ -103,7 +105,7 @@ header{
     float: left;
     border: none;
     padding: 0.5em;
-    color: white;
+    color: black;
     background-color: rgb(223, 223, 223);
 }
 
@@ -113,8 +115,29 @@ header{
 }
 
 
+#search-div-btn-advanced{
+    float: left;
+    width: 20%;
+}
+
+#search-div-btn-advanced button{
+    border-radius: 5px;
+    margin: 5% 8%;
+    float: left;
+    border: none;
+    padding: 0.5em 0.9em;
+    color: black;
+    background-color: rgb(223, 223, 223);
+}
+
+#search-div-btn-advanced button:hover{
+    background-color: #FA7921;
+    transition: 0.7s;
+}
+
+
 #search-advanced{
-    visibility: hidden;
+    display:none;
     background-color: rgb(161, 161, 161);
     width: 30%;
     padding: 1em;
@@ -150,17 +173,25 @@ header{
     }
 
     #search-div-btn{
-        width: 100%;
+        width: 50%;
+        text-align: center;
     }
 
     #search-div-btn button{
-        padding: 0.5em 15%;
-        margin: 5% 30%;
+        padding: 0.5em 10%;
+        margin: 2% auto;
+        float: right;
+    }
+    
+    #search-div-btn-advanced{
+        width: 50%;
+        margin: 0 auto;
+        text-align: center;
     }
 
-    #search-div-btn button:hover{
-        background-color: #FA7921;
-        transition: 0.7s;
+    #search-div-btn-advanced button{
+        margin: 8px 5px;
+        float: left;
     }
         
     #search-advanced{
