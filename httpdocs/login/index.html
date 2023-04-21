@@ -12,23 +12,13 @@
 
 
 <body>
-
     <header>
-        <nav id="menu-nav">
-            <span id="emoji">&#129309; Feira.</span>
-            <ul>
-                <!-- Alterando caminhos para testes -->
-                <li><a href="/httpdocs">Home</a></li>
-                <li><a href="/httpdocs/cadastro">Cadastro</a></li>
-                <li><a href="/httpdocs/login">Login</a></li>
-            </ul>
-        </nav>
+        <a href="/httpdocs/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
     </header>
 
 
     <div class="container_centro">
-        <h1>Login</h1>
-
+        <h1>Feira DOT - Login System<span></span></h1>
         <main>
             <div id="div_logar">
                 <!-- Solicitar Logar -->
@@ -36,12 +26,12 @@
 
                     <div class="div_form">
                         <label for="email"> E-mail </label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" id="email" name="email" required>
                     </div>
 
                     <div class="div_form">
                         <label for="password">Senha</label>
-                        <input type="password" id="password" name="password">
+                        <input type="password" id="password" name="password" required>
                         <!-- PHP usa o name -->
                     </div>
 
@@ -60,8 +50,7 @@
         <div id="div_info">
             <!-- Informações ou imagens para incentivar o uso e cadastro -->
             <h2>Entre na sua conta</h2>
-            <span id="emoji_info">&#129309;</span>
-            <p id="catch_frase">Aqui, as vendas acontecem</p>
+            <span id="emoji_info">&#128176;</span>
         </div>
 
     </div>
