@@ -2,9 +2,8 @@ document.addEventListener("DOMContentLoaded", function(){
     const form = document.querySelector("#form-cadastro");
     const inputCep = document.querySelector("#cep");
 
-    form.onsubmit = function(e){
+    form.onsubmit = function(){
         enviaForm(form);
-        e.preventDefault();
     }
 
     inputCep.addEventListener("keyup", function(){
