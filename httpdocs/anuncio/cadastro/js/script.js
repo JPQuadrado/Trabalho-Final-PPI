@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(){
     const form = document.querySelector("#form-cadastro");
+    const inputCep = document.querySelector("#cep");
 
     form.onsubmit = function(e){
         enviaForm(form);
         e.preventDefault();
     }
+
+    inputCep.addEventListener("keyup", function(){
+        buscaEndereco(inputCep.value);
+    });
 
     buscarCategorias();
 });
@@ -42,4 +47,28 @@ function buscarCategorias(){
     };
 
     xhr.send();
+}
+
+function buscaEndereco(valorCep){
+    let xhr = new XMLHttpRequest();
+    let objeto = {
+        cep:valorCep
+    }
+    xhr.open("POST", "buscaEndereco.php");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    
+    if(valorCep.length != 9) return;
+    
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+            const endereco = JSON.parse(xhr.response);
+            let form = document.querySelector("#form-cadastro");
+            form.bairro.value = endereco.bairro
+            console.log(form.bairro.value);
+            form.cidade.value = endereco.cidade;
+            form.estado.value = endereco.estado;
+        }
+    };
+
+    xhr.send(JSON.stringify(objeto));
 }
