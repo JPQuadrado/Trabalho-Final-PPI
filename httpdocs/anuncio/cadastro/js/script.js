@@ -61,10 +61,13 @@ function buscaEndereco(valorCep){
     
     xhr.onreadystatechange = function(){
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+            /**
+             * Transforma o objeto json vindo do buscaEndereco em um objeto javascript
+             * E atualiza dinamicamente o value do form.
+             */
             const endereco = JSON.parse(xhr.response);
             let form = document.querySelector("#form-cadastro");
             form.bairro.value = endereco.bairro
-            console.log(form.bairro.value);
             form.cidade.value = endereco.cidade;
             form.estado.value = endereco.estado;
         }
