@@ -50,3 +50,9 @@ CREATE TABLE base_endereco_ajax(
     cidade varchar(50),
     estado varchar(50)
 ) ENGINE=InnoDB;
+
+INSERT INTO categoria VALUES (default, "Veículo", "A categoria de veículo é uma classificação ampla que engloba diversos tipos de meios de transporte motorizados. Esses veículos podem ser utilizados para transportar pessoas, bens, mercadorias, materiais e equipamentos de um lugar para outro.");
+INSERT INTO categoria VALUES (default, "Eletroeletrônico", "A categoria de eletroeletrônicos engloba uma ampla gama de dispositivos eletrônicos que são alimentados por energia elétrica. Esses dispositivos incluem desde aparelhos domésticos, como televisores, geladeiras e aspiradores de pó.");
+INSERT INTO categoria VALUES (default, "Imóvel", "A categoria de imóvel engloba uma ampla variedade de propriedades, incluindo residenciais, comerciais, industriais e terrenos.");
+INSERT INTO categoria VALUES (default, "Vestuário", "A categoria de vestuário engloba todas as peças de roupa, calçados e acessórios que são usados para cobrir e proteger o corpo.");
+INSERT INTO categoria VALUES (default, "Outros", "A categoria 'outros' é uma classificação ampla que engloba uma ampla variedade de itens que não se enquadram em outras categorias mais específicas.");
