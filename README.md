@@ -7,5 +7,6 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
 - Adicionar feature "registro de interesse" em anuncio detalhado.
 - Listagem de anuncio de usuário (depois de logar vai para essa página) - Quadrado
 - Listagem de mensagens de interesse - Quadrado
-- Alteração dos dados de cadastro (exceto email) - Ribeirin
+- Alteração dos dados de cadastro (exceto email) - Ribeirin - 50%
 - Validação de login via Ajax - Ribeirin
+- Feature de anuncio de cadastro - Ribeirin - 80%
