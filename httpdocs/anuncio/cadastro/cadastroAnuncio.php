@@ -15,13 +15,8 @@ $cidade = $_POST["cidade"] ?? '';
 $estado = $_POST["estado"] ?? '';
 
 $sqlAnuncio = <<<SQL
-    INSERT INTO anuncio (cod_categoria, cod_anunciante, titulo, descricao, preco, data_hora)
-    VALUES (?, ?, ?, ?, ?, ?);
-    SQL;
-
-$sqlEndereco = <<<SQL
-    INSERT INTO anuncio (cep, bairro, cidade, estado)
-    VALUES (?, ?, ?, ?);
+    INSERT INTO anuncio (cod_categoria, cod_anunciante, titulo, descricao, preco, data_hora, cep, bairro, cidade, estado)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     SQL;
 
 $sqlFoto = <<<SQL
@@ -44,13 +39,8 @@ try{
     $stmtCategoria->execute([$categoria]);
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    if (!$stmtAnuncio->execute([$stmtCategoria, $stmtAnunciante, $titulo, $descricao, $preco, $datahora])){
+    if (!$stmtAnuncio->execute([$stmtCategoria, $stmtAnunciante, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])){
         throw new Exception('Falha na operação de inserção do anuncio');
-    }
-
-    $stmtEndereco = $pdo->prepare($sqlEndereco);
-    if (!$stmtEndereco->execute([$cep, $bairro, $cidade, $estado])){
-        throw new Exception('Falha na operação de inserção do endereço do anuncio');
     }
 
     $stmtFoto = $pdo->prepare($sqlFoto);
