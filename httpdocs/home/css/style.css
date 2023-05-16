@@ -1,3 +1,12 @@
 .container_n{
     margin-top: 1rem;
 }
+
+#emoji_solo_logo{
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+    color: black;
+    font-size: 40px;
+    margin: 0 auto;
+    width: 100%;
+  }
