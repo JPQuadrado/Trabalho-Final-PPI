@@ -18,7 +18,7 @@ function enviaForm(form){
     let formData = new FormData(form);
     let xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "cadastroAtualiza.php");
+    xhr.open("POST", form.getAttribute("action"));
     console.log(xhr.responseText);
     xhr.send(formData);
 }

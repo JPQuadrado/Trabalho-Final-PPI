@@ -17,7 +17,7 @@ function enviaForm(form){
     let formData = new FormData(form);
     let xhr = new XMLHttpRequest();
 
-    xhr.open("POST", "../cadastroAnuncio.php");
+    xhr.open("POST", form.getAttribute("action"));
     
     xhr.send(formData);
 }
