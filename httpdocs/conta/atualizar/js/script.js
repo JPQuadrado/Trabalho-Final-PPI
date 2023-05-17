@@ -1,17 +1,38 @@
 document.addEventListener("DOMContentLoaded", function(){
     const form = document.querySelector("#form-cadastro")
     const inputEmail = document.querySelector("#email");
-    //inputEmail.disabled = true;
+    inputEmail.disabled = true;
 
     form.onsubmit = function(e){
         enviaForm(form);
         e.preventDefault();
     }
 
-    buscaInformacoes();
+    buscaInformacoes(form);
 });
 
-function buscaInformacoes(){
+function buscaInformacoes(form){
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "buscaInformacoes.php");
+
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+            // Converte a resposta json em objeto JS.
+            var informacoes = JSON.parse(xhr.responseText);
+            
+            /**
+             * Faz um forEach no array recebido pelo servidor
+             * E atualiza os campos, o email é o identificante da sessão.
+             */
+            informacoes.forEach(function(informacao){
+                form.nome.value = informacao.nome;
+                form.email.value = informacao.email;
+                form.cpf.value = informacao.cpf;
+                form.telefone.value = informacao.telefone;
+            });
+        }
+    };
+    xhr.send()
 }
 
 function enviaForm(form){
