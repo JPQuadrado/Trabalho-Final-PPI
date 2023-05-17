@@ -10,13 +10,17 @@ class RequestResponse{
   }
 }
 
-require "../conexaoMysql.php";
+require "../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
-$email = $_POST["email"] ?? "";
-$senha = $_POST["senha"] ?? "";
+$nome = $_POST["nome"] ?? '';
+$email = $_POST["email"] ?? '';
+$cpf = $_POST["cpf"] ?? '';
+$telefone = $_POST["telefone"] ?? '';
+$senha_antiga = $_POST["senhaAntiga"] ?? '';
+$senha_nova = $_POST["senhaNova"] ?? '';
 
-function checkLogin($pdo, $email, $senha){
+function checkPass($pdo, $email, $senha){
     $sql = <<<SQL
         SELECT hash_senha
         FROM anunciante
@@ -39,8 +43,20 @@ function checkLogin($pdo, $email, $senha){
     }
 }
 
-if (checkLogin($pdo, $email, $senha)){
-    $response = new RequestResponse(true, 'index.html');
+if (checkPass($pdo, $email, $senha_antiga)){
+
+    $sqlUpdate = <<<SQL
+        UPDATE anunciante
+        SET nome = ?, cpf = ?, hash_senha = ?, telefone = ?
+        where email = ?
+        SQL;
+
+        $hash_senha = password_hash($senha_nova, PASSWORD_DEFAULT);
+
+        $stmtUpdate = $pdo->prepare($sqlUpdate);
+        $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
+
+        $response = new RequestResponse(true, 'index.html');
 }
 else{
     $response = new RequestResponse(false, '');
@@ -48,3 +64,5 @@ else{
 
 header('Content-type: application/json');
 echo json_encode($response);
+
+?>
