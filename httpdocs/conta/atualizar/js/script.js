@@ -19,6 +19,21 @@ function enviaForm(form){
     let xhr = new XMLHttpRequest();
 
     xhr.open("POST", form.getAttribute("action"));
-    console.log(xhr.responseText);
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+        let resposta = xhr.response;
+
+        if (resposta.success){
+            window.location = resposta.detail;
+        }
+        else {
+            document.querySelector("#att-fail").style.display = 'inline';
+            form.senhaAntiga.value = "";
+            form.senhaNova.value = "";
+            form.senhaAntiga.focus();
+        }
+    }      
+
     xhr.send(formData);
 }

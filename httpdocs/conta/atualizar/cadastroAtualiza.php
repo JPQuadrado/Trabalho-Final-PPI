@@ -1,5 +1,15 @@
 <?php
 
+class RequestResponse{
+  public $success;
+  public $detail;
+
+  function __construct($success, $detail){
+    $this->success = $success;
+    $this->detail = $detail;
+  }
+}
+
 require "../../conexaoMysql.php";
 $pdo = mysqlConnect();
 
@@ -45,10 +55,14 @@ if (checkPass($pdo, $email, $senha_antiga)){
 
         $stmtUpdate = $pdo->prepare($sqlUpdate);
         $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
-    header(http_response_code(200));
+
+        $response = new RequestResponse(true, 'index.html');
 }
 else{
-    header(http_response_code(400));
+    $response = new RequestResponse(false, '');
 }
+
+header('Content-type: application/json');
+echo json_encode($response);
 
 ?>
