@@ -1,5 +1,15 @@
 <?php
 
+class RequestResponse{
+  public $success;
+  public $detail;
+
+  function __construct($success, $detail){
+    $this->success = $success;
+    $this->detail = $detail;
+  }
+}
+
 require "../conexaoMysql.php";
 $pdo = mysqlConnect();
 
@@ -30,8 +40,11 @@ function checkLogin($pdo, $email, $senha){
 }
 
 if (checkLogin($pdo, $email, $senha)){
-    header("location: ../index.html");
+    $response = new RequestResponse(true, 'index.html');
 }
 else{
-    header("location: index.html");
+    $response = new RequestResponse(false, '');
 }
+
+header('Content-type: application/json');
+echo json_encode($response);

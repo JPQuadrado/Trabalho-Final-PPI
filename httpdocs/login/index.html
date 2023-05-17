@@ -21,7 +21,7 @@
         <h1>Feira DOT - Login System<span></span></h1>
         <main>
             <div id="div_logar">
-                <form action="loginAnunciante.php" method="post">
+                <form action="loginAnunciante.php" method="post" id="form-login">
 
                     <div class="div_form">
                         <label for="email"> E-mail </label>
@@ -31,6 +31,10 @@
                     <div class="div_form">
                         <label for="senha">Senha</label>
                         <input type="password" id="senha" name="senha" required>
+                    </div>
+
+                    <div>
+                        <p id="login-fail">E-mail ou senha incorreta. Por favor, tente novamente.</p>
                     </div>
 
                     <button type="submit" class="bt_sent">Entrar</button>
@@ -52,6 +56,8 @@
         </div>
 
     </div>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
