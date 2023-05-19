@@ -1,10 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const form = document.querySelector("#form-cadastro");
     const inputCep = document.querySelector("#cep");
-
-    form.onsubmit = function(){
-        enviaForm(form);
-    }
 
     inputCep.addEventListener("keyup", function(){
         buscaEndereco(inputCep.value);
@@ -12,15 +7,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     buscarCategorias();
 });
-
-function enviaForm(form){
-    let formData = new FormData(form);
-    let xhr = new XMLHttpRequest();
-
-    xhr.open("POST", form.getAttribute("action"));
-    
-    xhr.send(formData);
-}
 
 function buscarCategorias(){
     let xhr = new XMLHttpRequest();
