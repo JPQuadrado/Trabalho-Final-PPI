@@ -8,7 +8,7 @@ $preco = $_POST["preco"] ?? '';
 $descricao = $_POST["descricao"] ?? '';
 $cep = $_POST["cep"] ?? '';
 $datahora = $_POST["datahora"] ?? '';
-$foto = $_POST["foto"] ?? '';
+$fotos = $_FILES["foto"] ?? [];
 $categoria = $_POST["categoria"] ?? '';
 $bairro = $_POST["bairro"] ?? '';
 $cidade = $_POST["cidade"] ?? '';
@@ -20,32 +20,35 @@ $sqlAnuncio = <<<SQL
     SQL;
 
 $sqlFoto = <<<SQL
-    INSERT INTO foto (codAnuncio, nome_arquivo_foto)
+    INSERT INTO foto (cod_anuncio, nome_arquivo_foto)
     VALUES (?, ?);
-    SQL;
-
-$sqlCategoria = <<<SQL
-    SELECT codigo 
-    FROM categoria
-    WHERE categoria.codigo = ?
     SQL;
 
 try{
     $pdo->beginTransaction();
 
-    $ultimoIdInserido = $pdo->lastInsertId();
-
-    $stmtCategoria = $pdo->prepare($sqlCategoria);
-    $stmtCategoria->execute([$categoria]);
-
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    if (!$stmtAnuncio->execute([$stmtCategoria, $stmtAnunciante, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])){
+    if (!$stmtAnuncio->execute([$categoria, 22, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])){
         throw new Exception('Falha na operação de inserção do anuncio');
     }
-
+    
+    $ultimoIdInserido = $pdo->lastInsertId();        
     $stmtFoto = $pdo->prepare($sqlFoto);
-    if (!$stmtFoto->execute([$ultimoIdInserido, $foto])){
-        throw new Exception('Falha na operação de inserção do foto do anuncio');
+    
+    for($i = 0; $i < count($fotos["name"]); $i++){
+        //  $novo_nome vai ter a data e hora atual concatenando com o indice e por fim, pegando a extensão da imagem.
+        $novo_nome = date("Y.m.d-H.i.s") . "-" . $i . strtolower(substr($fotos['name'][$i],-4)); // 2023.05.18-23.29.30 - 2 .png
+        $destino = "../img/";
+
+        //  Lança uma exceção ao tentar mover a pasta /tmp/. O segundo parametro será o destino + o novo nome (renomeia a foto temporária).
+        if (!move_uploaded_file($fotos['tmp_name'][$i], $destino . $novo_nome)) {
+            throw new Exception('Falha no upload do arquivo');
+        }
+        
+        //  Insere no banco com o ultimo id inserio + o nome
+        if (!$stmtFoto->execute([$ultimoIdInserido, $novo_nome])){
+            throw new Exception('Falha na operação de inserção do foto do anuncio no banco');
+        }     
     }
     
     $pdo->commit();
