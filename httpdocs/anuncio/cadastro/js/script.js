@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function(){
         buscaEndereco(inputCep.value);
     });
 
-    buscarCategorias();
+    buscaCategorias();
 });
 
-function buscarCategorias(){
+function buscaCategorias(){
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "buscaCategoria.php");
 
