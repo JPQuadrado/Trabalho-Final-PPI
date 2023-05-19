@@ -1,5 +1,5 @@
-const imgAnuncioDetalhado = document.getElementById("img-div-anuncio");
-const btnAnuncioDetalhado = document.getElementById("btn-div-anuncio");
+const imgAnuncioDetalhado = document.querySelector(".img-div-anuncio");
+const btnAnuncioDetalhado = document.querySelector(".btn-div-anuncio");
 const opcoesImgAnuncio = ["/anuncio/img/caneca1.jpg", "/anuncio/img/caneca2.jpg", "/anuncio/img/caneca3.jpg", "/anuncio/img/caneca4.jpg"]
 var index = 0;
 
