@@ -1,11 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(){
+
     const inputCep = document.querySelector("#cep");
+
 
     inputCep.addEventListener("keyup", function(){
         buscaEndereco(inputCep.value);
     });
 
+
     buscaCategorias();
+
 });
 
 function buscaCategorias(){
@@ -57,6 +61,8 @@ function buscaEndereco(valorCep){
             form.estado.value = endereco.estado;
         }
     };
+
+
 
     xhr.send(JSON.stringify(objeto));
 }

@@ -8,7 +8,9 @@ $preco = $_POST["preco"] ?? '';
 $descricao = $_POST["descricao"] ?? '';
 $cep = $_POST["cep"] ?? '';
 $datahora = $_POST["datahora"] ?? '';
+
 $fotos = $_FILES["foto"] ?? [];
+
 $categoria = $_POST["categoria"] ?? '';
 $bairro = $_POST["bairro"] ?? '';
 $cidade = $_POST["cidade"] ?? '';
@@ -20,6 +22,7 @@ $sqlAnuncio = <<<SQL
     SQL;
 
 $sqlFoto = <<<SQL
+
     INSERT INTO foto (cod_anuncio, nome_arquivo_foto)
     VALUES (?, ?);
     SQL;
@@ -49,6 +52,7 @@ try{
         if (!$stmtFoto->execute([$ultimoIdInserido, $novo_nome])){
             throw new Exception('Falha na operação de inserção do foto do anuncio no banco');
         }     
+
     }
     
     $pdo->commit();
