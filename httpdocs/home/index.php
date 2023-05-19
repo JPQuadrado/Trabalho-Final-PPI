@@ -5,7 +5,9 @@ $pdo = mysqlConnect();
 try{
     $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE anuncio.codigo = 1
+
+    FROM anuncio WHERE anuncio.codigo = 55
+
     
     SQL;
     // 1 seria o valor 'anunciante.codigo', aprendera em seção.
@@ -76,11 +78,12 @@ catch (Exception $e) {
 
                     echo <<<HTML
                         <tr>
-                            <th scope="row">$endereco</th>
-                            <td>$bairro</td>
-                            <td>$cidade</td>
-                            <td>$nome</td> 
-                            <td>$email</td>
+
+                            <th scope="row">$codigo</th>
+                            <td>$titulo</td>
+                            <td>$descricao</td> 
+                            <td>$preco</td>
+
                         </tr>  
                     HTML;
                 }

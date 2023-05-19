@@ -1,28 +1,18 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const form = document.querySelector("#form-cadastro");
+
     const inputCep = document.querySelector("#cep");
 
-    form.onsubmit = function(){
-        enviaForm(form);
-    }
 
     inputCep.addEventListener("keyup", function(){
         buscaEndereco(inputCep.value);
     });
 
-    buscarCategorias();
+
+    buscaCategorias();
+
 });
 
-function enviaForm(form){
-    let formData = new FormData(form);
-    let xhr = new XMLHttpRequest();
-
-    xhr.open("POST", form.getAttribute("action"));
-    
-    xhr.send(formData);
-}
-
-function buscarCategorias(){
+function buscaCategorias(){
     let xhr = new XMLHttpRequest();
     xhr.open("GET", "buscaCategoria.php");
 
@@ -71,6 +61,8 @@ function buscaEndereco(valorCep){
             form.estado.value = endereco.estado;
         }
     };
+
+
 
     xhr.send(JSON.stringify(objeto));
 }
