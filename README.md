@@ -8,4 +8,5 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
 - Listagem de anuncio de usuário (depois de logar vai para essa página) - Quadrado
 - Listagem de mensagens de interesse - Quadrado
 - Alteração dos dados de cadastro (exceto email) - Ribeirin - 97% - Falta: session ID relacionar com o email no php.
-- Feature de anuncio de cadastro - Ribeirin - 80%
+- Feature de anuncio de cadastro - Ribeirin - 98% - Falta: session ID relacionar com anuncio no php.
+- Ajax na pagina principal para sincronizar busca avançada com o banco de dados de categoria - Ribeirin
