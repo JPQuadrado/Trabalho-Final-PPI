@@ -117,6 +117,47 @@ header{
     padding: 0 1em;
 }
 
+.interesse{
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+}
+
+.interesse-form{
+    background-color: rgb(223, 223, 223);
+    border-radius: 10px;
+    box-shadow: 0 0 10px black;
+}
+
+.interesse-form div{
+    padding: 5px 0;
+}
+
+#mensagem{
+    width: 99%;
+}
+
+#contato{
+    width: 50%;
+}
+
+#mensagem, #contato{
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+    border-style:ridge;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+#btn-enviar{
+    margin: 5px 0;
+    border-radius: 10px;
+    padding: 5px;
+    border-style: ridge;
+    box-shadow: 1px 1px 1px gray;
+}
+
 @media (max-width: 1600px){
     .div-anuncio-detalhado{
         width: 100%;
