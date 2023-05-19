@@ -23,6 +23,6 @@ function enviaForm(form){
         }
     }      
 
-      xhr.send(new FormData(form));
+    xhr.send(new FormData(form));
 
 }
