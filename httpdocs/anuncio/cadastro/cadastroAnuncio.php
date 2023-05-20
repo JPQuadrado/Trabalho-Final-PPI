@@ -1,6 +1,6 @@
 <?php
 
-require "../conections/conexaoMysql.php";
+require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $titulo = $_POST["titulo"] ?? '';
@@ -27,37 +27,35 @@ $sqlFoto = <<<SQL
     VALUES (?, ?);
     SQL;
 
-try{
+try {
     $pdo->beginTransaction();
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    if (!$stmtAnuncio->execute([$categoria, 22, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])){
+    if (!$stmtAnuncio->execute([$categoria, 22, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])) {
         throw new Exception('Falha na operação de inserção do anuncio');
     }
-    
-    $ultimoIdInserido = $pdo->lastInsertId();        
+
+    $ultimoIdInserido = $pdo->lastInsertId();
     $stmtFoto = $pdo->prepare($sqlFoto);
-    
-    for($i = 0; $i < count($fotos["name"]); $i++){
+
+    for ($i = 0; $i < count($fotos["name"]); $i++) {
         //  $novo_nome vai ter a data e hora atual concatenando com o indice e por fim, pegando a extensão da imagem.
-        $novo_nome = date("Y.m.d-H.i.s") . "-" . $i . strtolower(substr($fotos['name'][$i],-4)); // 2023.05.18-23.29.30 - 2 .png
+        $novo_nome = date("Y.m.d-H.i.s") . "-" . $i . strtolower(substr($fotos['name'][$i], -4)); // 2023.05.18-23.29.30 - 2 .png
         $destino = "../img/";
 
         //  Lança uma exceção ao tentar mover a pasta /tmp/. O segundo parametro será o destino + o novo nome (renomeia a foto temporária).
         if (!move_uploaded_file($fotos['tmp_name'][$i], $destino . $novo_nome)) {
             throw new Exception('Falha no upload do arquivo');
         }
-        
-        //  Insere no banco com o ultimo id inserio + o nome
-        if (!$stmtFoto->execute([$ultimoIdInserido, $novo_nome])){
-            throw new Exception('Falha na operação de inserção do foto do anuncio no banco');
-        }     
 
+        //  Insere no banco com o ultimo id inserio + o nome
+        if (!$stmtFoto->execute([$ultimoIdInserido, $novo_nome])) {
+            throw new Exception('Falha na operação de inserção do foto do anuncio no banco');
+        }
     }
-    
+
     $pdo->commit();
-}
-catch(Exception $e){
+} catch (Exception $e) {
     $pdo->rollBack();
     exit('Falha na transação: ' . $e->getMessage());
 }
