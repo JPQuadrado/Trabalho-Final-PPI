@@ -6,7 +6,8 @@ try {
   $sql = <<<SQL
     SELECT codigo, mensagem, data_hora, contato , cod_anuncio
     FROM interesse
-    WHERE cod_anuncio IN (SELECT codigo FROM anuncio WHERE cod_anunciante = 1);
+    WHERE cod_anuncio IN (SELECT codigo FROM anuncio WHERE cod_anunciante = 1)
+    ORDER BY data_hora asc;
     
     SQL;
   // 55 seria o valor 'anunciante.codigo', aprendera em seção.
@@ -33,7 +34,7 @@ try {
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand center" href="/home/index.php"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
@@ -46,7 +47,7 @@ try {
 
   <main class="container container_n">
     <h1 class="text-center">Interesses</h1>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive">
       <thead>
         <tr>
           <th scope="col">#</th>
