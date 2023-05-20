@@ -1,5 +1,5 @@
 <?php
-require "../conections/conexaoMysql.php";
+require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {

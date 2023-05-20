@@ -1,6 +1,6 @@
 <?php
 
-require "../conections/conexaoMysql.php";
+require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {
@@ -12,8 +12,6 @@ try {
     $stmt = $pdo->query($sql);
     $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($categorias);
-}
-
-catch (Exception $exception){
+} catch (Exception $exception) {
     exit("Falha: " . $exception->getMessage());
 }

@@ -14,7 +14,7 @@ class Endereco
   }
 }
 
-require "../conections/conexaoMysql.php";
+require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 // Carrega a string JSON da requisição
