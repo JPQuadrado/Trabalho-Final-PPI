@@ -4,15 +4,9 @@ $pdo = mysqlConnect();
 
 try {
   $sql = <<<SQL
-    SELECT codigo, cod_anunciante
-    INTO lt_anuncios_user
-    FROM anuncio    
-    WHERE anuncio.cod_anunciante = 1;
-
     SELECT codigo, mensagem, data_hora, contato
-    from interesse
-    WHERE interesse.cod_anuncio = lt_anuncios_user.codigo;
-
+    FROM interesse
+    WHERE cod_anuncio IN (SELECT codigo FROM anuncio WHERE cod_anunciante = 1);
     
     SQL;
   // 55 seria o valor 'anunciante.codigo', aprendera em seção.
