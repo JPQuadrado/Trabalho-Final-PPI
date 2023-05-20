@@ -34,7 +34,7 @@ try {
 </head>
 
 <body>
-  <nav class="navbar">
+  <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand center" href="/home/index.php"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
@@ -45,9 +45,9 @@ try {
     </div>
   </nav>
 
-  <main class="container container_n">
+  <main class="container container_n ">
     <h1 class="text-center">Anuncios</h1>
-    <table class="table table-striped">
+    <table class="table table-striped table-responsive">
       <thead>
         <tr>
           <th scope="col">#</th>
