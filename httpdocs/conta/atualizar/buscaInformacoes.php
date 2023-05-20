@@ -1,6 +1,6 @@
 <?php
 
-require "../../conexaoMysql.php";
+require "../conections/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {
@@ -13,10 +13,6 @@ try {
     $stmt = $pdo->query($sql);
     $informacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($informacoes);
-}
-
-catch (Exception $exception){
+} catch (Exception $exception) {
     exit("Falha: " . $exception->getMessage());
 }
-
-?>
