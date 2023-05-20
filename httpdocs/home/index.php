@@ -36,7 +36,7 @@ catch (Exception $e) {
 <body>
     <nav class="navbar">
       <div class="container-fluid">
-        <a class="navbar-brand center" href="#"><span id="emoji_solo_logo">🤝 Feira.</span></a>
+        <a class="navbar-brand center" href="/home"><span id="emoji_solo_logo">🤝 Feira.</span></a>
         <div class="d-flex gap-2 mb-3">
           <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
           <a href="/anuncio/interesse/index.php" class="btn btn-secondary">Interesses</a>
@@ -46,6 +46,7 @@ catch (Exception $e) {
     </nav>
 
     <main class="container container_n">
+      <h1 class="text-center">Anuncios</h1>
         <table class="table table-striped">
             <thead>
               <tr>
