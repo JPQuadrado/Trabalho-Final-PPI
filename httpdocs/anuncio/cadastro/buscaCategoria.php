@@ -1,6 +1,6 @@
 <?php
 
-require "../../conexaoMysql.php";
+require "../conections/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 try {
@@ -17,5 +17,3 @@ try {
 catch (Exception $exception){
     exit("Falha: " . $exception->getMessage());
 }
-
-?>

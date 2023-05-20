@@ -1,22 +1,25 @@
 <?php
 
-class RequestResponse{
-  public $success;
-  public $detail;
+class RequestResponse
+{
+    public $success;
+    public $detail;
 
-  function __construct($success, $detail){
-    $this->success = $success;
-    $this->detail = $detail;
-  }
+    function __construct($success, $detail)
+    {
+        $this->success = $success;
+        $this->detail = $detail;
+    }
 }
 
-require "../conexaoMysql.php";
+require "../conections/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $email = $_POST["email"] ?? "";
 $senha = $_POST["senha"] ?? "";
 
-function checkLogin($pdo, $email, $senha){
+function checkLogin($pdo, $email, $senha)
+{
     $sql = <<<SQL
         SELECT hash_senha
         FROM anunciante
@@ -33,16 +36,14 @@ function checkLogin($pdo, $email, $senha){
         if (!$row) return false;
 
         return password_verify($senha, $row['hash_senha']);
-    } 
-    catch (Exception $e) {
+    } catch (Exception $e) {
         exit('Falha: ' . $e->getMessage());
     }
 }
 
-if (checkLogin($pdo, $email, $senha)){
+if (checkLogin($pdo, $email, $senha)) {
     $response = new RequestResponse(true, 'index.html');
-}
-else{
+} else {
     $response = new RequestResponse(false, '');
 }
 
