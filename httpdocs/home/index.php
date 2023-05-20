@@ -46,6 +46,7 @@ catch (Exception $e) {
     </nav>
 
     <main class="container container_n">
+      <h1 class="text-center">Anuncios</h1>
         <table class="table table-striped">
             <thead>
               <tr>
