@@ -39,7 +39,7 @@ try {
       <a class="navbar-brand center" href="/home"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
         <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
-        <a href="/anuncio/interesse/index.php" class="btn btn-secondary">Interesses</a>
+        <a href="/interesses/index.php" class="btn btn-secondary">Interesses</a>
         <a href="/" class="btn btn-outline-danger">Logout</a>
       </div>
     </div>
@@ -118,6 +118,35 @@ try {
       </tbody>
     </table>
   </main>
+
+  <!-- Modal -->
+  <div class="modal" id="confirmDelete" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirmar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Clique em Confirmar para a remoção do comentario de interesse.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+  <script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    })
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
