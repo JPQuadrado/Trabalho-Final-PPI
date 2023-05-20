@@ -66,3 +66,15 @@ INSERT INTO anuncio (cod_categoria, cod_anunciante, titulo, descricao, preco, da
 VALUES (1, 1, 'Anúncio 1', 'Descrição do Anúncio 1', 100.00, NOW(), '12345-678', 'Bairro 1', 'Cidade 1', 'Estado 1'),
        (2, 1, 'Anúncio 2', 'Descrição do Anúncio 2', 200.00, NOW(), '23456-789', 'Bairro 2', 'Cidade 2', 'Estado 2'),
        (3, 1, 'Anúncio 3', 'Descrição do Anúncio 3', 300.00, NOW(), '34567-890', 'Bairro 3', 'Cidade 3', 'Estado 3');
+       
+INSERT INTO interesse (mensagem, data_hora, contato, cod_anuncio)
+VALUES ('Mensagem anúncio 1', NOW(), 'Contato anúncio 1', 1),
+       ('Mensagem anúncio 2', NOW(), 'Contato anúncio 2', 1),
+       ('Mensagem anúncio 3', NOW(), 'Contato anúncio 3', 2),
+       ('Mensagem anúncio 4', NOW(), 'Contato anúncio 4', 2),
+       ('Mensagem anúncio 5', NOW(), 'Contato anúncio 5', 3),
+       ('Mensagem anúncio 6', NOW(), 'Contato anúncio 6', 3);
+       
+INSERT INTO interesse (mensagem, data_hora, contato, cod_anuncio)
+VALUES ('Mensagem anúncio 5 - Quero pagar 50reais em', NOW() - INTERVAL 1 DAY, '8558231', 3),
+       ('Mensagem anúncio 6 - Dou 3 paieros na peça', NOW() - INTERVAL 2 DAY, 'Contato anúncio 6', 3);

@@ -36,7 +36,7 @@ try {
 <body>
   <nav class="navbar">
     <div class="container-fluid">
-      <a class="navbar-brand center" href="/home"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+      <a class="navbar-brand center" href="/home/index.php"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
         <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
         <a href="/interesses/index.php" class="btn btn-secondary">Interesses</a>
@@ -128,7 +128,7 @@ try {
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <p>Clique em Confirmar para a remoção do comentario de interesse.</p>
+          <p>Clique em Confirmar para a remover o anuncio</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
