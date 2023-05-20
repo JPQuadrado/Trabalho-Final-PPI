@@ -6,7 +6,7 @@ $pdo = mysqlConnect();
 try {
   $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE anuncio.codigo = 1
+    FROM anuncio WHERE anuncio.cod_anunciante = 1
 
     
     SQL;
