@@ -1,16 +1,18 @@
 <?php
 
-class RequestResponse{
-  public $success;
-  public $detail;
+class RequestResponse
+{
+    public $success;
+    public $detail;
 
-  function __construct($success, $detail){
-    $this->success = $success;
-    $this->detail = $detail;
-  }
+    function __construct($success, $detail)
+    {
+        $this->success = $success;
+        $this->detail = $detail;
+    }
 }
 
-require "../../conexaoMysql.php";
+require "../conections/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $nome = $_POST["nome"] ?? '';
@@ -20,7 +22,8 @@ $telefone = $_POST["telefone"] ?? '';
 $senha_antiga = $_POST["senhaAntiga"] ?? '';
 $senha_nova = $_POST["senhaNova"] ?? '';
 
-function checkPass($pdo, $email, $senha){
+function checkPass($pdo, $email, $senha)
+{
     $sql = <<<SQL
         SELECT hash_senha
         FROM anunciante
@@ -37,13 +40,12 @@ function checkPass($pdo, $email, $senha){
         if (!$row) return false;
 
         return password_verify($senha, $row['hash_senha']);
-    } 
-    catch (Exception $e) {
+    } catch (Exception $e) {
         exit('Falha: ' . $e->getMessage());
     }
 }
 
-if (checkPass($pdo, $email, $senha_antiga)){
+if (checkPass($pdo, $email, $senha_antiga)) {
 
     $sqlUpdate = <<<SQL
         UPDATE anunciante
@@ -51,18 +53,15 @@ if (checkPass($pdo, $email, $senha_antiga)){
         where email = ?
         SQL;
 
-        $hash_senha = password_hash($senha_nova, PASSWORD_DEFAULT);
+    $hash_senha = password_hash($senha_nova, PASSWORD_DEFAULT);
 
-        $stmtUpdate = $pdo->prepare($sqlUpdate);
-        $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
+    $stmtUpdate = $pdo->prepare($sqlUpdate);
+    $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
 
-        $response = new RequestResponse(true, 'index.html');
-}
-else{
+    $response = new RequestResponse(true, 'index.html');
+} else {
     $response = new RequestResponse(false, '');
 }
 
 header('Content-type: application/json');
 echo json_encode($response);
-
-?>

@@ -1,6 +1,6 @@
 <?php
 
-require "../../conexaoMysql.php";
+require "../conections/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $titulo = $_POST["titulo"] ?? '';
@@ -61,4 +61,3 @@ catch(Exception $e){
     $pdo->rollBack();
     exit('Falha na transação: ' . $e->getMessage());
 }
-?>
