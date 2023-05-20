@@ -2,10 +2,10 @@
 
 function mysqlConnect()
 {
-  $db_host = "localhost:3306";
+  $db_host = "localhost";
   $db_username = "root";
-  $db_password = "init1234!";
-  $db_name = "ppi_2";
+  $db_password = "Pass123@";
+  $db_name = "trabalho";
 
   // dsn é apenas um acrônimo de database source name
   $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
@@ -20,8 +20,11 @@ function mysqlConnect()
   try {
     $pdo = new PDO($dsn, $db_username, $db_password, $options);
     return $pdo;
-  } catch (Exception $e) {
+  } 
+  catch (Exception $e) {
     //error_log($e->getMessage(), 3, 'log.php');
     exit('Ocorreu uma falha na conexão com o BD: ' . $e->getMessage());
   }
 }
+
+?>
