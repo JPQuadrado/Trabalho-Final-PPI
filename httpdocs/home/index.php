@@ -39,7 +39,7 @@ try {
       <a class="navbar-brand center" href="/home"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
         <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
-        <a href="/anuncio/interesse/index.php" class="btn btn-secondary">Interesses</a>
+        <a href="/interesses/index.php" class="btn btn-secondary">Interesses</a>
         <a href="/" class="btn btn-outline-danger">Logout</a>
       </div>
     </div>
