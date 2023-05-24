@@ -6,11 +6,8 @@ $pdo = mysqlConnect();
 try {
   $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE anuncio.cod_anunciante = 1
-
-    
+    FROM anuncio WHERE cod_anunciante = 28
     SQL;
-  // 55 seria o valor 'anunciante.codigo', aprendera em seção.
 
   // Neste exemplo não é necessário utilizar prepared statements
   // porque não há possibilidade de injeção de SQL, 
@@ -57,27 +54,6 @@ try {
         </tr>
       </thead>
       <tbody>
-        <!--
-            <tbody>                
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-            -->
         <?php
         while ($row = $stmt->fetch()) {
           // Limpa os dados produzidos pelo usuário
@@ -112,41 +88,31 @@ try {
                   </td>
               </tr>
 
+              <!-- Modal -->
+              <div class="modal" id="confirmDelete" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Confirmar</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Clique em Confirmar para a remover o anuncio</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <a type="button" class="btn btn-primary" href="exclui-anuncio.php?codigo=$codigo" id="confirm">Confirmar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
           HTML;
         }
         ?>
       </tbody>
     </table>
   </main>
-
-  <!-- Modal -->
-  <div class="modal" id="confirmDelete" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Confirmar</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Clique em Confirmar para a remover o anuncio</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script>
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
-    })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
