@@ -9,3 +9,32 @@ btnAnuncioDetalhado.onclick = function(){
     
     imgAnuncioDetalhado.setAttribute('src', opcoesImgAnuncio[index])
 }
+
+document.addEventListener("DOMContentLoaded", function(){
+    const form = document.querySelector(".interesse-form");
+
+    form.onsubmit = function (e) {
+        enviaForm(form);
+        e.preventDefault();
+    }
+});
+
+function enviaForm(form){
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", form.getAttribute("action"));
+    xhr.responseType = 'json';
+
+    xhr.onload = function () {
+        let resposta = xhr.response;
+        console.log(resposta);
+        if (resposta.success){
+            alert(resposta.detail);
+        }
+        else {
+            alert(resposta.detail);
+        }
+    }      
+
+    xhr.send(new FormData(form));
+
+}
