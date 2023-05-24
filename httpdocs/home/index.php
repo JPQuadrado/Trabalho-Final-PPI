@@ -6,9 +6,8 @@ $pdo = mysqlConnect();
 try {
   $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE anuncio.cod_anunciante = 28
+    FROM anuncio WHERE cod_anunciante = 28
     SQL;
-  // 55 seria o valor 'anunciante.codigo', aprendera em seção.
 
   // Neste exemplo não é necessário utilizar prepared statements
   // porque não há possibilidade de injeção de SQL, 
@@ -55,27 +54,6 @@ try {
         </tr>
       </thead>
       <tbody>
-        <!--
-            <tbody>                
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-            -->
         <?php
         while ($row = $stmt->fetch()) {
           // Limpa os dados produzidos pelo usuário
