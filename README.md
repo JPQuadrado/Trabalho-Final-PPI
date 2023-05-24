@@ -4,13 +4,17 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
 
 ## To-Do
 
-- Listagem de anuncio de usuário (depois de logar vai para essa página) - Quadrado
-  - Criar modal para deletar anuncio (Confirmou rodou delete)
-  - Criar php e js para que ao clicar 'OLHO' seja levado a pagina com detalhes do produto da linha.
-- Listagem de mensagens de interesse - Quadrado
-  - Criar modal para delete;
-  - Criar mailto a partir do botão olho;
-    - Trocar simbolo para email.
-- Alteração dos dados de cadastro (exceto email) - Ribeirin - 98% - Falta: session ID relacionar com o email no php.
-- Anuncio de cadastro - Ribeirin - 98% - Falta: session ID relacionar com anuncio no php.
-- Form registro de interesse - Ribeirin 98% - Falta: relacionar cod_anuncio no php.
+- Quadrado
+  - Interesse
+    - Criar mailto a partir do botão olho;
+      - Trocar simbolo para email.
+  - Rolagem infinita
+    - Com busca - API Fetch (usa await e tag template)
+
+- Ribeirin
+  - Alteração dos dados de cadastro (exceto email) - 98% - Falta: session ID relacionar com o email no php.
+  - Anuncio de cadastro - 98% - Falta: session ID relacionar com anuncio no php.
+  - Form registro de interesse - 98% - Falta: relacionar cod_anuncio no php.
+  - Página de anuncio detalhado (acessa usando GET com ID respectivo).
+  - Deletar fotos php ao deletar o anuncio.
+  - Ao logar, enviar usuário para a home.
