@@ -12,5 +12,6 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
   - Criar modal para delete;
   - Criar mailto a partir do botão olho;
     - Trocar simbolo para email.
-- Alteração dos dados de cadastro (exceto email) - Ribeirin - 97% - Falta: session ID relacionar com o email no php.
-- Feature de anuncio de cadastro - Ribeirin - 98% - Falta: session ID relacionar com anuncio no php.
+- Alteração dos dados de cadastro (exceto email) - Ribeirin - 98% - Falta: session ID relacionar com o email no php.
+- Anuncio de cadastro - Ribeirin - 98% - Falta: session ID relacionar com anuncio no php.
+- Form registro de interesse - Ribeirin 98% - Falta: relacionar cod_anuncio no php.
