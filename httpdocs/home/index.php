@@ -6,9 +6,7 @@ $pdo = mysqlConnect();
 try {
   $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE anuncio.cod_anunciante = 1
-
-    
+    FROM anuncio WHERE anuncio.cod_anunciante = 28
     SQL;
   // 55 seria o valor 'anunciante.codigo', aprendera em seção.
 
@@ -132,21 +130,11 @@ try {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Confirmar</button>
+          <a type="button" class="btn btn-primary" href="exclui-anuncio.php?codigo=$codigo" id="confirm">Confirmar</a>
         </div>
       </div>
     </div>
   </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-  <script>
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', () => {
-      myInput.focus()
-    })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
