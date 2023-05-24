@@ -49,7 +49,7 @@ CREATE TABLE base_endereco_ajax(
     bairro varchar(50),
     cidade varchar(50),
     estado varchar(50)
-) ENGINE=InnoDB;anuncianteanunciante
+) ENGINE=InnoDB;
 
 INSERT INTO categoria VALUES (default, "Veículo", "A categoria de veículo é uma classificação ampla que engloba diversos tipos de meios de transporte motorizados. Esses veículos podem ser utilizados para transportar pessoas, bens, mercadorias, materiais e equipamentos de um lugar para outro.");
 INSERT INTO categoria VALUES (default, "Eletroeletrônico", "A categoria de eletroeletrônicos engloba uma ampla gama de dispositivos eletrônicos que são alimentados por energia elétrica. Esses dispositivos incluem desde aparelhos domésticos, como televisores, geladeiras e aspiradores de pó.");
