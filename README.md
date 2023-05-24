@@ -4,7 +4,6 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
 
 ## To-Do
 
-- Adicionar feature "registro de interesse" em anuncio detalhado.
 - Listagem de anuncio de usuário (depois de logar vai para essa página) - Quadrado
   - Criar modal para deletar anuncio (Confirmou rodou delete)
   - Criar php e js para que ao clicar 'OLHO' seja levado a pagina com detalhes do produto da linha.
