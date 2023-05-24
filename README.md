@@ -16,6 +16,5 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
   - Anuncio de cadastro - 98% - Falta: session ID relacionar com anuncio no php.
   - Form registro de interesse - 98% - Falta: relacionar cod_anuncio no php.
   - Página de anuncio detalhado (acessa usando GET com ID respectivo).
-  - Arrumar tabelas.sql
   - Deletar fotos php ao deletar o anuncio.
   - Ao logar, enviar usuário para a home.
