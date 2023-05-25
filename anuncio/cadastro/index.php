@@ -20,7 +20,7 @@ exitWhenNotLoggedIn();
 <body>
     <header>
         <nav id="menu-nav">
-            <span id="emoji">&#129309; Feira.</span>
+            <a href="/"><span id="emoji">&#129309; Feira.</span></a>
             <ul>
                 <li><a href="/home/">Home</a></li>
             </ul>
