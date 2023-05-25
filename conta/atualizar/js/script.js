@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    const form = document.querySelector("#form-cadastro")
+    const form = document.querySelector("#form-atualiza")
     const inputEmail = document.querySelector("#email");
     inputEmail.disabled = true;
 

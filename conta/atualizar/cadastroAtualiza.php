@@ -57,7 +57,12 @@ if (checkPass($pdo, $email, $senha_antiga)) {
         where email = ?
         SQL;
 
-    $hash_senha = password_hash($senha_nova, PASSWORD_DEFAULT);
+    if(!empty($senha_nova)){
+        $hash_senha = password_hash($senha_nova, PASSWORD_DEFAULT);
+    }
+    else{
+        $hash_senha = password_hash($senha_antiga, PASSWORD_DEFAULT);
+    }
 
     $stmtUpdate = $pdo->prepare($sqlUpdate);
     $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);

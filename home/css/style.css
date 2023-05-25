@@ -1,12 +1,39 @@
-.container_n{
-    margin-top: 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anuphan&family=Inconsolata:wght@700&display=swap%27');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anuphan', sans-serif;
+}
+
+body{
+    background-color: white;
+    line-height: 1.5;
+    overflow: none;
+}
+
+header{
+    position: sticky;
+    top: 0;
+    z-index: 101;
 }
 
 #emoji_solo_logo{
     font-family: 'Inconsolata', monospace;
     font-weight: bold;
-    color: black;
+    color: white;
     font-size: 40px;
     margin: 0 auto;
     width: 100%;
-  }
+}
+
+#title-home{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 32px;
+}
+
+.btnNav{
+    margin-top: 15px;
+}

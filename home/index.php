@@ -36,26 +36,30 @@ try {
 </head>
 
 <body>
-  <nav class="navbar sticky-top navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand center" href="/home/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
-      <div class="d-flex gap-2 mb-3">
-        <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
-        <a href="/interesses/" class="btn btn-secondary">Interesses</a>
-        <a href="/logout.php" class="btn btn-outline-danger">Logout</a>
+  <header>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+        <div class="d-flex gap-2 mb-3">
+          <a href="/anuncio/cadastro/" class="btn btn-outline-light btnNav">Novo Anuncio</a>
+          <a href="/interesses/" class="btn btn-outline-light btnNav">Interesses</a>
+          <a href="/conta/atualizar/" class="btn btn-outline-light btnNav">Atualizar dados</a>
+          <a href="/logout.php" class="btn btn-outline-light btnNav">Logout</a>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <main class="container container_n ">
-    <h1 class="text-center">Anuncios</h1>
-    <table class="table table-striped table-responsive">
+    <h1 id="title-home">Anuncios</h1>
+    <table class="table table-hover table-responsive table-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Titulo</th>
           <th scope="col">Descrição</th>
           <th scope="col">Preço</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>

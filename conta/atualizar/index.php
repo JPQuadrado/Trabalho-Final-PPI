@@ -19,20 +19,23 @@ exitWhenNotLoggedIn();
 </head>
 <body>
     <header>
-        <nav id="menu-nav">
-            <span id="emoji">&#129309; Feira.</span>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/cadastro/">Cadastro</a></li>
-                <li><a href="/login/">Login</a></li>
-            </ul>
+        <nav class="navbar sticky-top navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+                <div class="d-flex gap-2 mb-3">
+                    <a href="/home/" class="btn btn-outline-light">Home</a>
+                    <a href="/anuncio/cadastro/" class="btn btn-outline-light">Novo Anuncio</a>
+                    <a href="/interesses/" class="btn btn-outline-light">Interesses</a>
+                    <a href="/logout.php" class="btn btn-outline-light">Logout</a>
+                </div>
+            </div>
         </nav>
     </header>
     
     <main>
-        <div class="container-md">
-            <h1 id="title-cadastro">Alteração dos dados de cadastro</h1>
-            <form action="cadastroAtualiza.php" method="post" id="form-cadastro">
+        <div class="container-md modify">
+            <h1 id="title-atualiza">Alteração dos dados de cadastro</h1>
+            <form action="cadastroAtualiza.php" method="post" id="form-atualiza">
                 <div class="row g-3 align-items-center justify-content-center">
                     <div class="col-md-6 p-2">
                         <label for="nome" class="form-label">Nome</label>

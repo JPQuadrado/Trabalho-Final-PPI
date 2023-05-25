@@ -3,13 +3,13 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Anuphan', sans-serif;
 }
 
 body{
     background-color: white;
     line-height: 1.5;
-    height: 100vh;
     overflow: none;
 }
 
@@ -19,43 +19,16 @@ header{
     z-index: 101;
 }
 
-#emoji{
+#emoji_solo_logo{
     font-family: 'Inconsolata', monospace;
     font-weight: bold;
     color: white;
     font-size: 40px;
-    margin-left: 5px;
-}
-
-#menu-nav{
-    background-color: black;
-    display: inline-block;
+    margin: 0 auto;
     width: 100%;
 }
 
-#menu-nav ul {
-    list-style: none;
-    float: right;
-}
-
-#menu-nav ul li {
-    float: left;
-}
-
-#menu-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 0 1.2rem;
-    display: inline-block;
-    font-weight: bold;
-}
-
-#menu-nav ul li a:hover{
-    background-color: #FA7921;
-    transition: 0.7s;
-}
-
-#form-cadastro{
+#form-atualiza{
     background-color: #0002;
     padding: 1em;
     border-radius: 1em;
@@ -64,10 +37,10 @@ header{
     text-align: center;
 }
 
-#title-cadastro{
+#title-atualiza{
     text-align: center;
     font-weight: bold;
-    margin-top: 4em;
+    margin-top: 32px;
 }
 
 .btn{
@@ -78,4 +51,4 @@ header{
     display: none;
     color: red;
     text-align: center;
-  }
+}
