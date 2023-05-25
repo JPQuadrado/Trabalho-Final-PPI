@@ -40,20 +40,21 @@ try {
 </head>
 
 <body>
-  <nav class="navbar sticky-top navbar-light bg-light">
+  <nav class="navbar sticky-top navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
-        <a href="/home/" class="btn btn-outline-primary">Home</a>
-        <a href="/anuncio/cadastro/" class="btn btn-outline-success">Novo Anuncio</a>
-        <a href="/logout.php" class="btn btn-outline-danger">Logout</a>
+        <a href="/home/" class="btn btn-outline-light btnNav">Home</a>
+        <a href="/anuncio/cadastro/" class="btn btn-outline-light btnNav">Novo Anuncio</a>
+        <a href="/conta/atualizar/" class="btn btn-outline-light btnNav">Atualizar dados</a>
+        <a href="/logout.php" class="btn btn-outline-light btnNav">Logout</a>
       </div>
     </div>
   </nav>
 
-  <main class="container container_n">
-    <h1 class="text-center">Interesses</h1>
-    <table class="table table-striped table-responsive">
+  <main class="container">
+    <h1 id="title-interesse">Interesses</h1>
+    <table class="table table-hover table-responsive table-dark">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -61,6 +62,7 @@ try {
           <th scope="col">Mensagem</th>
           <th scope="col">Data</th>
           <th scope="col">Contato</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
