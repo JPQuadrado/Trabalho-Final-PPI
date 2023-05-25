@@ -7,24 +7,23 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 });
 
-function enviaForm(form){
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", form.getAttribute("action"));
-    xhr.responseType = 'json';
+async function enviaForm(form){
+    try{
+        let response = await fetch(form.getAttribute("action"), { method: 'post', body: new FormData(form) });
+        if (!response.ok) throw new Error(response.statusText);
+        var responseJS = await response.json();
 
-    xhr.onload = function () {
-        let resposta = xhr.response;
-
-        if (resposta.success){
-            window.location = resposta.detail;
+        if (responseJS.success){
+            window.location = responseJS.detail;
         }
         else {
             document.querySelector("#login-fail").style.display = 'block';
             form.senha.value = "";
             form.senha.focus();
         }
-    }      
 
-      xhr.send(new FormData(form));
-
+    }
+    catch(e){
+        console.error(e);
+    }
 }
