@@ -40,7 +40,8 @@ exitWhenNotLoggedIn();
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="" >
+                        <input type="email" name="email" id="email" class="form-control" disabled placeholder="" <?php echo "value=" . $_SESSION['email']?>>
+                        <input type=hidden name="email" <?php echo "value=" . $_SESSION['email']?> >
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="cpf" class="form-label">CPF</label>

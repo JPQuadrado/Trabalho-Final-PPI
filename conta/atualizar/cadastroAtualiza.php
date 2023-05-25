@@ -4,15 +4,17 @@ class RequestResponse
 {
     public $success;
     public $detail;
+    public $email;
 
-    function __construct($success, $detail)
+    function __construct($success, $detail, $email)
     {
         $this->success = $success;
         $this->detail = $detail;
+        $this->email = $email;
     }
 }
 
-require "../connect/conexaoMysql.php";
+require "../../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $nome = $_POST["nome"] ?? '';
@@ -33,13 +35,15 @@ function checkPass($pdo, $email, $senha)
     try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$email]);
+        $senhaHash = $stmt->fetchColumn();
 
-        //  Declara em $row a tupla que foi identificada pela consulta
-        $row = $stmt->fetch();
-        //  Se a consulta não existir (email não existor), retorna false
-        if (!$row) return false;
+        //  Email não encontrado
+        if (!$senhaHash) return false;
 
-        return password_verify($senha, $row['hash_senha']);
+        // Senha incorreta
+        if (!password_verify($senha, $senhaHash)) return false;
+        
+        return true;
     } catch (Exception $e) {
         exit('Falha: ' . $e->getMessage());
     }
@@ -58,9 +62,9 @@ if (checkPass($pdo, $email, $senha_antiga)) {
     $stmtUpdate = $pdo->prepare($sqlUpdate);
     $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
 
-    $response = new RequestResponse(true, '/conta/atualizar/');
+    $response = new RequestResponse(true, '/conta/atualizar/', $email);
 } else {
-    $response = new RequestResponse(false, '');
+    $response = new RequestResponse(false, '', $email);
 }
 
 header('Content-type: application/json');
