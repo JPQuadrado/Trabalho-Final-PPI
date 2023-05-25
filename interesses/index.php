@@ -2,6 +2,12 @@
 require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
+require "../sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
+
 try {
   $sql = <<<SQL
     SELECT codigo, mensagem, data_hora, contato , cod_anuncio
