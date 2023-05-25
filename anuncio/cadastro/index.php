@@ -1,7 +1,6 @@
 <?php
 
-require "../connect/conexaoMysql.php";
-require "../sessionVerification.php";
+require "../../sessionVerification.php";
 
 session_start();
 exitWhenNotLoggedIn();
