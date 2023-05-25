@@ -12,7 +12,7 @@ session_destroy();
 // exclui o cookie da sessão
 setcookie(session_name(), "", 1, "/");
 
-header('Location: index.html');
+header('Location: /');
 exit();
 
 ?>

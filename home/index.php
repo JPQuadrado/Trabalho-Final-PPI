@@ -38,10 +38,10 @@ try {
 <body>
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand center" href="/home/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+      <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
-        <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
-        <a href="/interesses/" class="btn btn-secondary">Interesses</a>
+        <a href="/anuncio/cadastro/" class="btn btn-outline-success">Novo Anuncio</a>
+        <a href="/interesses/" class="btn btn-outline-secondary">Interesses</a>
         <a href="/logout.php" class="btn btn-outline-danger">Logout</a>
       </div>
     </div>
