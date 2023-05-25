@@ -12,7 +12,7 @@ class RequestResponse
     }
 }
 
-require "../connect/conexaoMysql.php";
+require "../../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $nome = $_POST["nome"] ?? "";
