@@ -42,7 +42,7 @@ try {
       <div class="d-flex gap-2 mb-3">
         <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
         <a href="/interesses/" class="btn btn-secondary">Interesses</a>
-        <a href="/" class="btn btn-outline-danger">Logout</a>
+        <a href="/logout.php" class="btn btn-outline-danger">Logout</a>
       </div>
     </div>
   </nav>
