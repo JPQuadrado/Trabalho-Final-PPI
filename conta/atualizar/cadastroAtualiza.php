@@ -58,7 +58,7 @@ if (checkPass($pdo, $email, $senha_antiga)) {
     $stmtUpdate = $pdo->prepare($sqlUpdate);
     $stmtUpdate->execute([$nome, $cpf, $hash_senha, $telefone, $email]);
 
-    $response = new RequestResponse(true, 'index.html');
+    $response = new RequestResponse(true, '/conta/atualizar/');
 } else {
     $response = new RequestResponse(false, '');
 }

@@ -42,7 +42,7 @@ if (checkLogin($pdo, $email, $senha)) {
     session_start();
     $_SESSION["loggedIn"] = true;
     $_SESSION["email"] = $email;
-    $response = new RequestResponse(true, '../home/index.php');
+    $response = new RequestResponse(true, "/home/");
 } else {
     $response = new RequestResponse(false, '');
 }
