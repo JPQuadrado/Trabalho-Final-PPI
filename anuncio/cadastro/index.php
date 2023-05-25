@@ -18,14 +18,17 @@ exitWhenNotLoggedIn();
     <title>Cadastro de anuncio</title>
 </head>
 <body>
-    <header>
-        <nav id="menu-nav">
-            <a href="/"><span id="emoji">&#129309; Feira.</span></a>
-            <ul>
-                <li><a href="/home/">Home</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar sticky-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+            <div class="d-flex gap-2 mb-3">
+                <a href="/home/" class="btn btn-outline-light">Home</a>
+                <a href="/interesses/" class="btn btn-outline-light">Interesses</a>
+                <a href="/conta/atualizar/" class="btn btn-outline-light">Atualizar dados</a>
+                <a href="/logout.php" class="btn btn-outline-light">Logout</a>
+            </div>
+        </div>
+    </nav>
     
     <main>
         <div class="container-md">

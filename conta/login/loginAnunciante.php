@@ -10,7 +10,7 @@ class RequestResponse{
     }
 }
 
-require "../connect/conexaoMysql.php";
+require "../../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
 $email = $_POST["email"] ?? "";
