@@ -1,6 +1,11 @@
 <?php
 
 require "../connect/conexaoMysql.php";
+require "../sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
 $pdo = mysqlConnect();
 
 try {
