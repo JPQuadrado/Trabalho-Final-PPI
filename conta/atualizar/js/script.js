@@ -13,7 +13,9 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function buscaInformacoes(form){
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "buscaInformacoes.php");
+    let email = form.email[1].value;
+
+    xhr.open("GET", "buscaInformacoes.php?email=" + `"${email}"`);
 
     xhr.onreadystatechange = function(){
         if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
@@ -44,11 +46,12 @@ function enviaForm(form){
 
     xhr.onload = function () {
         let resposta = xhr.response;
-
+        console.log(resposta);
         if (resposta.success){
             window.location = resposta.detail;
         }
         else {
+            console.log(resposta.email);
             document.querySelector("#att-fail").style.display = 'inline';
             form.senhaAntiga.value = "";
             form.senhaNova.value = "";

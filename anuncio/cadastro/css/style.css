@@ -55,6 +55,10 @@ header{
     transition: 0.7s;
 }
 
+#menu-nav a{
+    text-decoration: none;
+}
+
 #form-cadastro{
     background-color: #0002;
     padding: 1em;

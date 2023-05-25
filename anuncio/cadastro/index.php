@@ -1,3 +1,12 @@
+<?php
+
+require "../../sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,11 +20,9 @@
 <body>
     <header>
         <nav id="menu-nav">
-            <span id="emoji">&#129309; Feira.</span>
+            <a href="/"><span id="emoji">&#129309; Feira.</span></a>
             <ul>
-                <li><a href="/httpdocs/">Home</a></li>
-                <li><a href="/httpdocs/cadastro/">Cadastro</a></li>
-                <li><a href="/httpdocs/login/">Login</a></li>
+                <li><a href="/home/">Home</a></li>
             </ul>
         </nav>
     </header>

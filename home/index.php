@@ -1,6 +1,11 @@
 <?php
 
 require "../connect/conexaoMysql.php";
+require "../sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
 $pdo = mysqlConnect();
 
 try {
@@ -18,8 +23,8 @@ try {
 }
 ?>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -33,11 +38,11 @@ try {
 <body>
   <nav class="navbar sticky-top navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand center" href="/home/index.php"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
+      <a class="navbar-brand center" href="/home/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
       <div class="d-flex gap-2 mb-3">
         <a href="/anuncio/cadastro/" class="btn btn-success">Novo Anuncio</a>
-        <a href="/interesses/index.php" class="btn btn-secondary">Interesses</a>
-        <a href="/" class="btn btn-outline-danger">Logout</a>
+        <a href="/interesses/" class="btn btn-secondary">Interesses</a>
+        <a href="/logout.php" class="btn btn-outline-danger">Logout</a>
       </div>
     </div>
   </nav>

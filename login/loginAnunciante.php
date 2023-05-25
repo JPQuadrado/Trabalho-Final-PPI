@@ -1,12 +1,10 @@
 <?php
 
-class RequestResponse
-{
+class RequestResponse{
     public $success;
     public $detail;
 
-    function __construct($success, $detail)
-    {
+    function __construct($success, $detail){
         $this->success = $success;
         $this->detail = $detail;
     }
@@ -18,8 +16,7 @@ $pdo = mysqlConnect();
 $email = $_POST["email"] ?? "";
 $senha = $_POST["senha"] ?? "";
 
-function checkLogin($pdo, $email, $senha)
-{
+function checkLogin($pdo, $email, $senha){
     $sql = <<<SQL
         SELECT hash_senha
         FROM anunciante
@@ -42,7 +39,10 @@ function checkLogin($pdo, $email, $senha)
 }
 
 if (checkLogin($pdo, $email, $senha)) {
-    $response = new RequestResponse(true, 'index.html');
+    session_start();
+    $_SESSION["loggedIn"] = true;
+    $_SESSION["email"] = $email;
+    $response = new RequestResponse(true, "/home/");
 } else {
     $response = new RequestResponse(false, '');
 }

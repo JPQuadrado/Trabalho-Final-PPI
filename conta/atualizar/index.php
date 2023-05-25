@@ -1,3 +1,12 @@
+<?php
+
+require "../../sessionVerification.php";
+
+session_start();
+exitWhenNotLoggedIn();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,9 +22,9 @@
         <nav id="menu-nav">
             <span id="emoji">&#129309; Feira.</span>
             <ul>
-                <li><a href="/httpdocs/">Home</a></li>
-                <li><a href="/httpdocs/cadastro/">Cadastro</a></li>
-                <li><a href="/httpdocs/login/">Login</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/cadastro/">Cadastro</a></li>
+                <li><a href="/login/">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -31,7 +40,8 @@
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="" >
+                        <input type="email" name="email" id="email" class="form-control" disabled placeholder="" <?php echo "value=" . $_SESSION['email']?>>
+                        <input type=hidden name="email" <?php echo "value=" . $_SESSION['email']?> >
                     </div>
                     <div class="col-md-6 p-2">
                         <label for="cpf" class="form-label">CPF</label>
