@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(){
-
+    const form = document.querySelector("#form-cadastro");
     const inputCep = document.querySelector("#cep");
 
+    form.addEventListener("submit", function(event){
+        enviaForm(form);
+        event.preventDefault();
+    });
 
     inputCep.addEventListener("keyup", function(){
         buscaEndereco(inputCep.value);
@@ -11,6 +15,20 @@ document.addEventListener("DOMContentLoaded", function(){
     buscaCategorias();
 
 });
+
+async function enviaForm(form){
+    try{
+        let resposta = await fetch(form.getAttribute("action"), {method: "post", body: new FormData(form)});
+        if(!resposta.ok) throw new Error(resposta.statusText);
+        var resultado = await resposta.json();
+
+        if(resultado.success) window.location = resultado.detail;
+        else window.location = resultado.detail;
+    }
+    catch(error){
+        console.error(error);
+    }
+}
 
 function buscaCategorias(){
     let xhr = new XMLHttpRequest();
