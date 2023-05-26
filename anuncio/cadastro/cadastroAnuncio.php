@@ -1,6 +1,10 @@
 <?php
 
 require "../../connect/conexaoMysql.php";
+require "../../sessionVerification.php";
+
+session_start();
+
 $pdo = mysqlConnect();
 
 $titulo = $_POST["titulo"] ?? '';
@@ -15,6 +19,8 @@ $categoria = $_POST["categoria"] ?? '';
 $bairro = $_POST["bairro"] ?? '';
 $cidade = $_POST["cidade"] ?? '';
 $estado = $_POST["estado"] ?? '';
+
+$codAnunciante = $_SESSION["codAnunciante"];
 
 $sqlAnuncio = <<<SQL
     INSERT INTO anuncio (cod_categoria, cod_anunciante, titulo, descricao, preco, data_hora, cep, bairro, cidade, estado)
@@ -31,7 +37,7 @@ try {
     $pdo->beginTransaction();
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    if (!$stmtAnuncio->execute([$categoria, 22, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])) {
+    if (!$stmtAnuncio->execute([$categoria, $codAnunciante, $titulo, $descricao, $preco, $datahora, $cep, $bairro, $cidade, $estado])) {
         throw new Exception('Falha na operação de inserção do anuncio');
     }
 
