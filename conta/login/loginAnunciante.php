@@ -38,10 +38,31 @@ function checkLogin($pdo, $email, $senha){
     }
 }
 
+function getAnuncianteID($pdo, $email){
+    $sql = <<<SQL
+        SELECT codigo
+        from anunciante
+        where email = ?
+        SQL;
+
+    try{
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email]);
+
+        return $cod = $stmt->fetchColumn();
+        return $cod;
+    }
+    catch(Exception $e){
+        exit("Erro: " . $e->getMessage());
+    }
+}
+
 if (checkLogin($pdo, $email, $senha)) {
     session_start();
     $_SESSION["loggedIn"] = true;
     $_SESSION["email"] = $email;
+    $_SESSION["codAnunciante"] = getAnuncianteID($pdo, $email);
+
     $response = new RequestResponse(true, "/home/");
 } else {
     $response = new RequestResponse(false, '');

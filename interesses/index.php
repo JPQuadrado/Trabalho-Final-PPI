@@ -7,12 +7,13 @@ require "../sessionVerification.php";
 session_start();
 exitWhenNotLoggedIn();
 
+$codAnunciante = $_SESSION["codAnunciante"];
 
 try {
   $sql = <<<SQL
     SELECT codigo, mensagem, data_hora, contato , cod_anuncio
     FROM interesse
-    WHERE cod_anuncio IN (SELECT codigo FROM anuncio WHERE cod_anunciante = 28)
+    WHERE cod_anuncio IN (SELECT codigo FROM anuncio WHERE cod_anunciante = $codAnunciante)
     ORDER BY data_hora asc;
     
     SQL;

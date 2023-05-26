@@ -8,10 +8,12 @@ exitWhenNotLoggedIn();
 
 $pdo = mysqlConnect();
 
+$codAnunciante = $_SESSION["codAnunciante"];
+
 try {
   $sql = <<<SQL
     SELECT codigo, titulo, descricao, preco
-    FROM anuncio WHERE cod_anunciante = 28
+    FROM anuncio WHERE cod_anunciante = $codAnunciante
     SQL;
 
   // Neste exemplo não é necessário utilizar prepared statements
@@ -52,7 +54,7 @@ try {
 
   <main class="container container_n ">
     <h1 id="title-home">Anuncios</h1>
-    <table class="table table-hover table-responsive table-dark">
+    <table class="table table-hover table-responsive">
       <thead>
         <tr>
           <th scope="col">#</th>
