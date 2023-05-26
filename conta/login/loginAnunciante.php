@@ -42,6 +42,17 @@ if (checkLogin($pdo, $email, $senha)) {
     session_start();
     $_SESSION["loggedIn"] = true;
     $_SESSION["email"] = $email;
+
+    $sql = <<<SQL
+        SELECT codigo
+        from anunciante
+        where email = $email
+        SQL;
+    
+    $cod = $pdo->query($sql);
+    
+    $_SESSION["codAnunciante"] = $cod;
+
     $response = new RequestResponse(true, "/home/");
 } else {
     $response = new RequestResponse(false, '');
