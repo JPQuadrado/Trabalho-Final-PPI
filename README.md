@@ -14,4 +14,3 @@ Pasta contendo o trabalho final da materia Programação para a Internet - 2023
 - Ribeirin
   - Form registro de interesse - 98% - Falta: relacionar cod_anuncio no php.
   - Página de anuncio detalhado (acessa usando GET com ID respectivo).
-  - Deletar fotos php ao deletar o anuncio.
