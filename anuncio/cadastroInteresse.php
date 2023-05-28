@@ -15,6 +15,7 @@ class RequestResponse
 require "../connect/conexaoMysql.php";
 $pdo = mysqlConnect();
 
+$cod = $_POST["cod"] ?? "";
 $mensagem = $_POST["mensagem"] ?? '';
 $contato = $_POST["contato"] ?? '';
 
@@ -25,7 +26,7 @@ $sql = <<<SQL
 
 try{
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([$mensagem, $contato, 58]);
+    $stmt->execute([$mensagem, $contato, $cod]);
 
     $response = new RequestResponse(true, 'Sucesso');
 }

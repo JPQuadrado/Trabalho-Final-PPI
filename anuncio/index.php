@@ -112,6 +112,9 @@ else{
                     <div>
                         <form action="cadastroInteresse.php" method="post" class="interesse-form">
                             <div>
+                                <input type="text" name="cod" id="cod" value="$codAnuncio" hidden>
+                            </div>
+                            <div>
                                 <label for="mensagem">Mensagem</label>
                                 <input type="text" name="mensagem" id="mensagem">
                             </div>
