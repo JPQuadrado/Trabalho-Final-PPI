@@ -17,7 +17,6 @@ try {
     ORDER BY data_hora asc;
     
     SQL;
-  // 55 seria o valor 'anunciante.codigo', aprendera em seção.
 
   // Neste exemplo não é necessário utilizar prepared statements
   // porque não há possibilidade de injeção de SQL, 
@@ -55,7 +54,7 @@ try {
 
   <main class="container">
     <h1 id="title-interesse">Interesses</h1>
-    <table class="table table-hover table-responsive table-dark">
+    <table class="table table-hover table-responsive">
       <thead>
         <tr>
           <th scope="col">#</th>
