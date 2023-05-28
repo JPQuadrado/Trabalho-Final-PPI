@@ -28,6 +28,7 @@ function verifyAnuncio($pdo, $codAnuncio){
     }
 }
 
+// Se não existir anuncio, é redirecionado ao arquivo index na raiz.
 if(!verifyAnuncio($pdo, $codAnuncio)){
     header("Location: /");
     exit();
@@ -39,15 +40,15 @@ else{
         WHERE cod_anuncio = ?
         SQL;
 
-    $sql = <<<SQL
+    $sqlAnuncio = <<<SQL
         SELECT *
         FROM anuncio
         WHERE codigo = ?
         SQL;
 
     try{
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$codAnuncio]);
+        $stmtAnuncio = $pdo->prepare($sqlAnuncio);
+        $stmtAnuncio->execute([$codAnuncio]);
 
         $stmtFotos = $pdo->prepare($sqlFotos);
         $stmtFotos->execute([$codAnuncio]);
@@ -61,7 +62,7 @@ else{
         exit("Erro: " . $e->getMessage());
     }
 
-    while ($row = $stmt->fetch()) {
+    while ($row = $stmtAnuncio->fetch()) {
         $titulo = htmlspecialchars($row['titulo']);
         $descricao = htmlspecialchars($row['descricao']);
         $preco = htmlspecialchars($row['preco']);
