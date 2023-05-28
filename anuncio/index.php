@@ -5,6 +5,11 @@ $pdo = mysqlConnect();
 
 $codAnuncio = $_GET["cod"];
 
+/**
+ * Função que faz a verificação de existencia do anuncio passado pelo usuário.
+ * Verificação ocorre a partir do número de linhas que existe na query resultada.
+ * Se for igual a 0 (não existe anuncio com o ID), retorna false, se for maior (existe um anuncio), retorna true.
+ */
 function verifyAnuncio($pdo, $codAnuncio){
     $sql = <<<SQL
         SELECT codigo
@@ -28,6 +33,11 @@ if(!verifyAnuncio($pdo, $codAnuncio)){
     exit();
 }
 else{
+    $sqlFotos = <<<SQL
+        SELECT nome_arquivo_foto
+        FROM foto
+        WHERE cod_anuncio = ?
+        SQL;
 
     $sql = <<<SQL
         SELECT *
@@ -38,6 +48,14 @@ else{
     try{
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$codAnuncio]);
+
+        $stmtFotos = $pdo->prepare($sqlFotos);
+        $stmtFotos->execute([$codAnuncio]);
+        // Array contendo todas as fotos respectivas do anuncio.
+        $fotos = $stmtFotos->fetchAll(PDO::FETCH_COLUMN);
+        // Pega a foto inicial para ser setada diretamente no HTML.
+        $fotoInicial = $fotos[0];
+        $fotos = json_encode($fotos);
     }
     catch(Exception $e){
         exit("Erro: " . $e->getMessage());
@@ -49,6 +67,10 @@ else{
         $preco = htmlspecialchars($row['preco']);
     }
     
+    /**
+     * Mostra dinamicamente as informações do anuncio detalhado.
+     * Utiliza atributo data em html para mandar o array $fotos.
+     */
     echo <<<HTML
     <!DOCTYPE html>
     <html lang="pt-br">
@@ -74,7 +96,8 @@ else{
             <main>
                 <div class="div-anuncio-detalhado">
                     <div class="div-anuncio-detalhado-foto">
-                        <img src="img/caneca1.jpg" class="img-div-anuncio" alt="Caneca personalizada">
+                        <img src='/anuncio/img/$fotoInicial' class="img-div-anuncio" alt="Caneca personalizada">
+                        <div id="fotos-data" data-fotos='$fotos'></div>
                         <button class="btn-div-anuncio">Proxima foto</button>
                     </div>
                     <div class="div-anuncio-detalhado-informacoes">
@@ -103,7 +126,8 @@ else{
                 </div>
             </main>
 
-            <script src="js/script.js"></script>
+            <script src="js/script.js">
+            </script>
         </body>
     </html>
     HTML;
