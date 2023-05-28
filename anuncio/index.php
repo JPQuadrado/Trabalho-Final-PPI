@@ -52,16 +52,18 @@ else{
 
         $stmtFotos = $pdo->prepare($sqlFotos);
         $stmtFotos->execute([$codAnuncio]);
-        // Array contendo todas as fotos respectivas do anuncio.
-        $fotos = $stmtFotos->fetchAll(PDO::FETCH_COLUMN);
-        // Pega a foto inicial para ser setada diretamente no HTML.
-        $fotoInicial = $fotos[0];
-        $fotos = json_encode($fotos);
     }
     catch(Exception $e){
         exit("Erro: " . $e->getMessage());
     }
 
+    // Array contendo todas as fotos respectivas do anuncio.
+    $fotos = $stmtFotos->fetchAll(PDO::FETCH_COLUMN);
+    // Pega a foto inicial para ser setada diretamente no HTML.
+    $fotoInicial = $fotos[0];
+    $fotos = json_encode($fotos);
+
+    // Atribui cada resultado da coluna com a respectiva variavel.
     while ($row = $stmtAnuncio->fetch()) {
         $titulo = htmlspecialchars($row['titulo']);
         $descricao = htmlspecialchars($row['descricao']);
@@ -130,8 +132,7 @@ else{
                 </div>
             </main>
 
-            <script src="js/script.js">
-            </script>
+            <script src="js/script.js"></script>
         </body>
     </html>
     HTML;
