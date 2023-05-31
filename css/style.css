@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    overflow: none;
+    text-decoration: none;
 }
 
 body{
@@ -18,7 +18,6 @@ body{
 
 main{
     margin: 0 auto;
-    height: 100vh;
 }
 
 header{
@@ -79,7 +78,7 @@ header{
 }
 
 #search-div{
-    margin: 20% auto;
+    margin: 100px 0;
 }
 
 #search-div-input{

@@ -52,3 +52,28 @@ header{
     color: red;
     text-align: center;
 }
+
+.container-fluid{
+    --bs-gutter-x: 0;
+}
+
+.navbar{
+    --bs-navbar-padding-y: 0;
+    --bs-navbar-brand-padding-y: 0;
+}
+
+.bg-dark {
+	background-color: #343a40 !important;
+}
+
+.mb-2 {
+    margin-bottom: .55rem !important;
+}
+
+.btn-outline-light{
+    --bs-btn-hover-bg: #FA7921;
+}
+
+.navbar-brand{
+    margin-left: 5px;
+}
