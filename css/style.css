@@ -173,7 +173,7 @@ header{
 
 @media (max-width: 780px) {
     #search-div-input{
-        width: 100%; 
+        width: 100%;
     }
 
     #search-div-btn{
@@ -199,17 +199,19 @@ header{
     }
         
     #search-advanced{
-        width: 40%;
+        text-align: center;
+        width: 80%;
     }
     
     #search-advanced-description, #search-advanced-title{
-        width: 20%;
         margin: 0;
         padding: 0;
+        text-align: center;
     }
     
     #search-advanced-price {
-        width: 50%;
         margin: 10px 0;
+
+        text-align: center;
     }
 }
