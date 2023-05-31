@@ -43,7 +43,7 @@ try {
   <nav class="navbar sticky-top navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
-      <div class="d-flex gap-2 mb-3">
+      <div class="gap-2 mb-3">
         <a href="/home/" class="btn btn-outline-light btnNav">Home</a>
         <a href="/anuncio/cadastro/" class="btn btn-outline-light btnNav">Novo Anuncio</a>
         <a href="/conta/atualizar/" class="btn btn-outline-light btnNav">Atualizar dados</a>
