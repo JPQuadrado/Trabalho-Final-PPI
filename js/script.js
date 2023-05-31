@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 function buscaAvancada(){
-    const search = document.getElementById("search-div-btn-advanced");
+    const search = document.querySelector("#btn-advanced");
     const divAdvanced = document.getElementById("search-advanced");
     let foo = false;
     

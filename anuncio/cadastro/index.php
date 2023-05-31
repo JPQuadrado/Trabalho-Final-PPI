@@ -21,7 +21,7 @@ exitWhenNotLoggedIn();
     <nav class="navbar sticky-top navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand center" href="/"><span id="emoji_solo_logo">&#129309; Feira.</span></a>
-            <div class="d-flex gap-2 mb-3">
+            <div class="gap-2 mb-2">
                 <a href="/home/" class="btn btn-outline-light">Home</a>
                 <a href="/interesses/" class="btn btn-outline-light">Interesses</a>
                 <a href="/conta/atualizar/" class="btn btn-outline-light">Atualizar dados</a>

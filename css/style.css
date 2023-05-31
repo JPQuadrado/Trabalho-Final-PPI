@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    overflow: none;
+    text-decoration: none;
 }
 
 body{
@@ -18,7 +18,6 @@ body{
 
 main{
     margin: 0 auto;
-    height: 100vh;
 }
 
 header{
@@ -79,7 +78,7 @@ header{
 }
 
 #search-div{
-    margin: 20% auto;
+    margin: 100px 0;
 }
 
 #search-div-input{
@@ -148,6 +147,7 @@ header{
     margin: 0 1%;
     border-radius: 5px;
     color: rgb(0, 0, 0);
+    float: right;
 }
 
 #search-advanced-description, #search-advanced-title{
@@ -171,9 +171,9 @@ header{
     width: 100%;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 810px) {
     #search-div-input{
-        width: 100%; 
+        width: 100%;
     }
 
     #search-div-btn{
@@ -199,17 +199,19 @@ header{
     }
         
     #search-advanced{
-        width: 40%;
+        text-align: center;
+        width: 80%;
     }
     
     #search-advanced-description, #search-advanced-title{
-        width: 20%;
         margin: 0;
         padding: 0;
+        text-align: center;
     }
     
     #search-advanced-price {
-        width: 50%;
         margin: 10px 0;
+
+        text-align: center;
     }
 }
