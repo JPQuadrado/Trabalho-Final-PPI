@@ -54,74 +54,76 @@ try {
 
   <main class="container container_n ">
     <h1 id="title-home">Anuncios</h1>
-    <table class="table table-hover table-responsive">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Titulo</th>
-          <th scope="col">Descrição</th>
-          <th scope="col">Preço</th>
-          <th scope="col">Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        while ($row = $stmt->fetch()) {
-          // Limpa os dados produzidos pelo usuário
-          // com possibilidade de ataque XSS
-          $codigo = htmlspecialchars($row['codigo']);
-          $titulo = htmlspecialchars($row['titulo']);
-          $descricao = htmlspecialchars($row['descricao']);
-          $preco = htmlspecialchars($row['preco']);
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Titulo</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          while ($row = $stmt->fetch()) {
+            // Limpa os dados produzidos pelo usuário
+            // com possibilidade de ataque XSS
+            $codigo = htmlspecialchars($row['codigo']);
+            $titulo = htmlspecialchars($row['titulo']);
+            $descricao = htmlspecialchars($row['descricao']);
+            $preco = htmlspecialchars($row['preco']);
 
-          echo <<<HTML
-              <tr>
+            echo <<<HTML
+                <tr>
 
-                  <th scope="row">$codigo</th>
-                  <td>$titulo</td>
-                  <td>$descricao</td> 
-                  <td>$preco</td>
+                    <th scope="row">$codigo</th>
+                    <td>$titulo</td>
+                    <td>$descricao</td> 
+                    <td>$preco</td>
 
-                  <td class="btn-container">       
-                    <a type="button" href="/anuncio/index.php?cod=$codigo" class="btn btn-primary">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
-                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-                      </svg>
-                    </a>
+                    <td class="btn-container">       
+                      <a type="button" href="/anuncio/index.php?cod=$codigo" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                          <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                      </a>
 
-                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                      </svg>
-                    </button>
-                  </td>
-              </tr>
+                      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDelete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                          <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                        </svg>
+                      </button>
+                    </td>
+                </tr>
 
-              <!-- Modal -->
-              <div class="modal" id="confirmDelete" tabindex="-1">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Confirmar</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Clique em Confirmar para a remover o anuncio</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <a type="button" class="btn btn-primary" href="exclui-anuncio.php?codigo=$codigo" id="confirm">Confirmar</a>
+                <!-- Modal -->
+                <div class="modal" id="confirmDelete" tabindex="-1">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Confirmar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Clique em Confirmar para a remover o anuncio</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a type="button" class="btn btn-primary" href="exclui-anuncio.php?codigo=$codigo" id="confirm">Confirmar</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-          HTML;
-        }
-        ?>
-      </tbody>
-    </table>
+            HTML;
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
