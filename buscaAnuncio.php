@@ -20,22 +20,29 @@ class Anuncio{
 }
 
 try {
+  $anuncios = array();
+
   $sqlFotos = <<<SQL
       SELECT nome_arquivo_foto
       FROM foto
       WHERE cod_anuncio = ?
       SQL;
     
-  $sql = <<<SQL
+  $sqlAnuncio = <<<SQL
       SELECT codigo, titulo, descricao, preco
       FROM anuncio
   SQL;
 
-  $stmt = $pdo->query($sql);
+  $stmtAnuncio = $pdo->query($sqlAnuncio);
 
-  $anuncios = array();
-
-  while($row = $stmt->fetch()){
+  /**
+   * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
+   * Para cada linha, é feito uma query na tabela de nome de fotos. Pega o array de fotos
+   * respectivo ao anuncio e pega a primeira ocorrencia do array (será a primeira foto).
+   * 
+   * Por fim, adiciona ao vetor $anuncios, um objeto respectivo contendo as informações.
+   */
+  while($row = $stmtAnuncio->fetch()){
     $codigo = $row["codigo"];
     $titulo = $row["titulo"];
     $descricao = $row["descricao"];
@@ -49,9 +56,9 @@ try {
     $anuncios[] = new Anuncio($codigo, $titulo, $descricao, $preco, "/anuncio/img/" . $fotoInicial);
   }
 
-  header('Content-type: application/json');
+  header("Content-type: application/json");
   echo json_encode($anuncios);
-
-} catch (Exception $exception) {
+}
+catch (Exception $exception) {
   exit("Falha: " . $exception->getMessage());
 }
