@@ -3,14 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
   buscaCategorias();
 });
 
-/* Não é onload, é quando solicitar busca. MUDAR
 window.onload = function () {
   loadProducts();
-};
-*/
+}
 
 window.onscroll = function () {
-  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     loadProducts();
   }
 };
@@ -90,29 +88,33 @@ function buscaCategorias() {
   xhr.send();
 }
 
-function renderProducts(newProducts) {
-  const prodsSection = document.getElementById("products");
-  const template = document.getElementById("template");
-
-  for (let product of newProducts) {
-    let html = template.innerHTML
-      .replace("{{prod-image}}", product.imagePath)
-      .replace("{{prod-name}}", product.name)
-      .replace("{{prod-price}}", product.price);
-
-    prodsSection.insertAdjacentHTML("beforeend", html);
-  }
-}
-
 async function loadProducts() {
   try {
-    let response = await fetch("more-products.php");
-    if (!response.ok) throw new Error(response.statusText);
-    var products = await response.json();
+    let resposta = await fetch("buscaProduto.php");
+    if (!resposta.ok) throw new Error(resposta.statusText);
+    var anuncios = await resposta.json();
+    
   } catch (e) {
     console.error(e);
     return;
   }
 
-  renderProducts(products);
+  renderAnuncios(anuncios);
+}
+
+function renderAnuncios(anuncios) {
+
+  const anuncioSection = document.querySelector(".results_search");
+  const template = document.querySelector("#template");
+
+  for (let anuncio of anuncios) {
+    let html = template.innerHTML
+      .replace("{{anuncio-image}}", anuncio.imagem)
+      .replace("{{anuncio-titulo}}", anuncio.nome)
+      .replace("{{anuncio-descricao}}", anuncio.descricao)
+      .replace("{{anuncio-preco}}", anuncio.preco)
+      .replace("{{anuncio-codigo}}", anuncio.codigo);
+
+      anuncioSection.insertAdjacentHTML("beforeend", html);
+  };
 }
