@@ -47,7 +47,7 @@ if (campoInvalido($nome, $cpf, $email, $telefone, $senha)) {
     $response = new RequestResponse(false, 'Erro');
 } else {
     insere($pdo, $nome, $cpf, $email, $telefone, $senha);
-    $response = new RequestResponse(true, '/login/');
+    $response = new RequestResponse(true, '/conta/login/');
 }
 
 header('Content-type: application/json');
