@@ -61,20 +61,19 @@
                 </div>
             </form>
         </div>
+
+        <section class="results_search">
+            <template id="template">
+                <div class="card">
+                    <img class="item-image" src="{{anuncio-image}}"></img>
+                    <h2 class="item-name">{{anuncio-titulo}}</h2>
+                    <p class="item-description">{{anuncio-descricao}}</p>
+                    <span class="item-price">Preço: R${{anuncio-preco}}</span>
+                    <a href="anuncio/index.php?cod={{anuncio-codigo}}">Leia mais</a>
+                </div>
+            </template>
+        </section>
     </main>
-
-    <section class="results_search">
-        <template id="template">
-            <div class="card">
-                <img class="item-image" src="{{anuncio-image}}"></img>
-                <h2 class="item-name">{{anuncio-titulo}}</h2>
-                <p class="item-description">{{anuncio-descricao}}</p>
-                <span class="item-price">Preço: R${{anuncio-preco}}</span>
-                <a href="anuncio/index.php?cod={{anuncio-codigo}}">Leia mais</a>
-            </div>
-        </template>
-
-    </section>
 
     <script src="js/script.js"></script>
 </body>
