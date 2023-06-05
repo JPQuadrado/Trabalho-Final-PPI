@@ -233,6 +233,26 @@ header {
     margin-left: auto;
 }
 
+.footer{
+    margin: 10px 0;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-sub{
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-sub h4{
+    margin: 10px 0;
+}
+
+.footer-sub span{
+    margin: 0 5px;
+}
+
 @media (max-width: 810px) {
     #search-div-input {
         width: 100%;
