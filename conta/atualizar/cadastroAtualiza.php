@@ -49,6 +49,12 @@ function checkPass($pdo, $email, $senha)
     }
 }
 
+/**
+ * Verifica se as senhas batem.
+ * Se bater, temos duas opções:
+ * 1ª - Atualizar todos os campos sem modificar a senha
+ * 2ª - Atualizar todos os campos modificando senha (usando a função empty)
+ */
 if (checkPass($pdo, $email, $senha_antiga)) {
 
     $sqlUpdate = <<<SQL

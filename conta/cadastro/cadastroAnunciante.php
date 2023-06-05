@@ -38,8 +38,11 @@ function insere($pdo, $nome, $cpf, $email, $telefone, $senha)
     }
 }
 
-function campoInvalido($nome, $cpf, $email, $telefone, $senha)
-{
+/**
+ * Retorna se existe algum campo vazio na hora de realizar o cadastro.
+ * Usa a função empty para retornar.
+ */
+function campoInvalido($nome, $cpf, $email, $telefone, $senha){
     return empty($nome) || empty($cpf) || empty($email) || empty($telefone) || empty($senha);
 }
 

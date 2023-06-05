@@ -8,9 +8,8 @@ try {
     $sql = <<<SQL
         DELETE FROM interesse
         WHERE codigo = ?
-        LIMIT 1      
+        LIMIT 1
     SQL;
-    // 55 seria o valor 'anunciante.codigo', aprendera em seção.
 
     // Neste exemplo não é necessário utilizar prepared statements
     // porque não há possibilidade de injeção de SQL, 

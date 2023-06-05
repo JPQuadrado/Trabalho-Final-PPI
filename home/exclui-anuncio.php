@@ -11,6 +11,11 @@ try {
         WHERE cod_anuncio = ?
         SQL;
     
+    /**
+     * Faz a consulta retornando um array com o nome das fotos
+     * respectiva do código do anuncio.
+     * Além disso, faz um foreach usando a função unlink passando o caminho da foto.
+     */
     $stmtFotos = $pdo->prepare($sqlFotos);
     $stmtFotos->execute([$codigo]);
     $fotos = $stmtFotos->fetchAll(PDO::FETCH_COLUMN);
