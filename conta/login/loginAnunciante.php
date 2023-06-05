@@ -38,6 +38,10 @@ function checkLogin($pdo, $email, $senha){
     }
 }
 
+/**
+ * Função que pega o codigo do anunciante a partir do email.
+ * Usa fetchColumn para retornar um unico resultado possível.
+ */
 function getAnuncianteID($pdo, $email){
     $sql = <<<SQL
         SELECT codigo
@@ -57,6 +61,9 @@ function getAnuncianteID($pdo, $email){
     }
 }
 
+/**
+ * Ao fazer login, salva as informações utilizando sessões do PHP.
+ */
 if (checkLogin($pdo, $email, $senha)) {
     session_start();
     $_SESSION["loggedIn"] = true;

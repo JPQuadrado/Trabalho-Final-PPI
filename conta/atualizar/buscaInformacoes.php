@@ -8,10 +8,15 @@ try {
     $sql = <<<SQL
         SELECT nome, cpf, email, telefone
         FROM anunciante
-        WHERE email = $email;
+        WHERE email = ?;
     SQL;
 
-    $stmt = $pdo->query($sql);
+    /**
+     * Busca todas as informações a partir do email.
+     */
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$email]);
+
     $informacoes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($informacoes);
