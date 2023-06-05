@@ -1,3 +1,7 @@
+var paginaAtual = 1;
+var carregando = false;
+var fimResultados = false;
+
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("#form-search");
   const btnForm = document.querySelector("#btn-search");
@@ -21,20 +25,36 @@ window.onscroll = function () {
 };
 
 async function busca(form){
-  try{
-    const obj = {
-      method: "POST",
-      body: new FormData(form)
+  if (!carregando && !fimResultados) {
+    carregando = true;
+
+    try{
+      var formData = new FormData(form);
+      formData.append("pagina", paginaAtual);
+
+      const obj = {
+        method: "POST",
+        body: formData
+      }
+
+      let resposta  = await fetch(form.getAttribute("action"), obj);
+      if(!resposta.ok) throw new Error(resposta.statusText);
+      var anuncios = await resposta.json();
+
+      if(anuncios.length > 0){
+        renderAnuncios(anuncios);
+
+        paginaAtual++;
+      }
+      else{
+        fimResultados = true;
+      }
+    }
+    catch(e){
+      console.error(e);
     }
 
-    let resposta  = await fetch(form.getAttribute("action"), obj);
-    if(!resposta.ok) throw new Error(resposta.statusText);
-    var anuncios = await resposta.json();
-    
-    renderAnuncios(anuncios);
-  }
-  catch(e){
-    console.error(e);
+    carregando = false;
   }
 }
 

@@ -26,6 +26,14 @@ $precoMax = $_POST["priceMax"] ?? "";
 $opcaoCategoria = $_POST["categoria"];
 
 /**
+ * Configurações para a busca usando rolagem.
+ *  Stack overflow topic: https://bit.ly/42iPsix
+ */
+$pagina = $_POST["pagina"] ?? 1;
+$itensPorPagina = 6;
+$offset = ($pagina - 1) * $itensPorPagina;
+
+/**
  * Separa a string usando espaço como delimitador com o explode.
  * E por fim, obtem as 5 primeiras strings.
  */
@@ -43,7 +51,7 @@ $palavrasChave = array_slice($palavras, 0, 5);
  * Faz a busca usando os filtros para título.
  * Com opção de categoria.
  */
-function buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria){
+function buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria, $itensPorPagina, $offset){
   try {
     $anuncios = array();
 
@@ -74,6 +82,7 @@ function buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria
         )
         AND preco BETWEEN ? AND ?
         AND cod_categoria = ?
+        LIMIT ? OFFSET ?
     SQL;
 
     $palavraChaveUm = '%'.$palavrasChave[0].'%';
@@ -83,7 +92,7 @@ function buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria
     $palavraChaveCinco = '%'.$palavrasChave[4].'%';
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $precoMin, $precoMax, $cod_categoria]);
+    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $precoMin, $precoMax, $cod_categoria, $itensPorPagina, $offset]);
 
     /**
      * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
@@ -119,7 +128,7 @@ function buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria
  * Faz a busca usando os filtros para descrição.
  * Com opção de categoria.
  */
-function buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria){
+function buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria, $itensPorPagina, $offset){
   try {
     $anuncios = array();
 
@@ -150,6 +159,7 @@ function buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCatego
         )
         AND preco BETWEEN ? AND ?
         AND cod_categoria = ?
+        LIMIT ? OFFSET ?
     SQL;
 
     $palavraChaveUm = '%'.$palavrasChave[0].'%';
@@ -159,7 +169,7 @@ function buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCatego
     $palavraChaveCinco = '%'.$palavrasChave[4].'%';
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $precoMin, $precoMax, $cod_categoria]);
+    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $precoMin, $precoMax, $cod_categoria, $itensPorPagina, $offset]);
 
     /**
      * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
@@ -195,7 +205,7 @@ function buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCatego
  * Faz a busca usando titulos somente.
  * Sem opção de categoria.
  */
-function buscaTituloTodos($pdo, $palavrasChave){
+function buscaTituloTodos($pdo, $palavrasChave, $itensPorPagina, $offset){
   try {
     $anuncios = array();
 
@@ -215,6 +225,7 @@ function buscaTituloTodos($pdo, $palavrasChave){
           OR titulo LIKE ?
           OR titulo LIKE ?
         )
+        LIMIT ? OFFSET ?
     SQL;
 
     $palavraChaveUm = '%'.$palavrasChave[0].'%';
@@ -224,7 +235,7 @@ function buscaTituloTodos($pdo, $palavrasChave){
     $palavraChaveCinco = '%'.$palavrasChave[4].'%';
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco]);
+    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $itensPorPagina, $offset]);
 
     /**
      * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
@@ -260,7 +271,7 @@ function buscaTituloTodos($pdo, $palavrasChave){
  * Faz a busca usando descrição somente.
  * Sem opção de categoria.
  */
-function buscaDescricaoTodos($pdo, $palavrasChave){
+function buscaDescricaoTodos($pdo, $palavrasChave, $itensPorPagina, $offset){
   try {
     $anuncios = array();
 
@@ -280,6 +291,7 @@ function buscaDescricaoTodos($pdo, $palavrasChave){
           OR descricao LIKE ?
           OR descricao LIKE ?
         )
+        LIMIT ? OFFSET ?
     SQL;
 
     $palavraChaveUm = '%'.$palavrasChave[0].'%';
@@ -289,7 +301,7 @@ function buscaDescricaoTodos($pdo, $palavrasChave){
     $palavraChaveCinco = '%'.$palavrasChave[4].'%';
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco]);
+    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $itensPorPagina, $offset]);
 
     /**
      * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
@@ -324,7 +336,7 @@ function buscaDescricaoTodos($pdo, $palavrasChave){
 /**
  * Faz a busca usando titulo ou descrição.
  */
-function buscaTodos($pdo, $palavrasChave){
+function buscaTodos($pdo, $palavrasChave, $itensPorPagina, $offset){
   try {
     $anuncios = array();
 
@@ -349,6 +361,7 @@ function buscaTodos($pdo, $palavrasChave){
           OR descricao LIKE ?
           OR descricao LIKE ?
         )
+        LIMIT ? OFFSET ?
     SQL;
 
     $palavraChaveUm = '%'.$palavrasChave[0].'%';
@@ -358,7 +371,7 @@ function buscaTodos($pdo, $palavrasChave){
     $palavraChaveCinco = '%'.$palavrasChave[4].'%';
 
     $stmtAnuncio = $pdo->prepare($sqlAnuncio);
-    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco]);
+    $stmtAnuncio->execute([$palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $palavraChaveUm, $palavraChaveDois, $palavraChaveTres, $palavraChaveQuatro, $palavraChaveCinco, $itensPorPagina, $offset]);
 
     /**
      * Percorre todas as linhas, uma por uma e atribui valores as variáveis.
@@ -392,23 +405,23 @@ function buscaTodos($pdo, $palavrasChave){
 
 // Busca por titulo, preços e categoria
 if($opcao == "titulo" && $opcaoCategoria != ""){
-  buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria);
+  buscaTitulo($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria, $itensPorPagina, $offset);
 }
 // Busca por descrição, preços e categoria
 elseif($opcao == "descricao" && $opcaoCategoria != ""){
-  buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria);
+  buscaDescricao($pdo, $palavrasChave, $precoMin, $precoMax, $opcaoCategoria, $itensPorPagina, $offset);
 }
 else{
   // Busca por titulo
   if($opcao == "titulo"){
-    buscaTituloTodos($pdo, $palavrasChave);
+    buscaTituloTodos($pdo, $palavrasChave, $itensPorPagina, $offset);
   }
   // Busca por descrição
   elseif($opcao == "descricao"){
-    buscaDescricaoTodos($pdo, $palavrasChave);
+    buscaDescricaoTodos($pdo, $palavrasChave, $itensPorPagina, $offset);
   }
   // Busca por titlo ou descrição
   else{
-    buscaTodos($pdo, $palavrasChave);
+    buscaTodos($pdo, $palavrasChave, $itensPorPagina, $offset);
   }
 }
