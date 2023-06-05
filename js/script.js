@@ -1,17 +1,42 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("#form-search");
+  const btnForm = document.querySelector("#btn-search");
+
   buscaAvancada();
   buscaCategorias();
-});
 
-window.onload = function () {
-  loadProducts();
-}
+  
+  btnForm.addEventListener("click", function(e){
+    busca(form);
+    e.preventDefault();
+  })
+
+});
 
 window.onscroll = function () {
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-    loadProducts();
+    const form = document.querySelector("#form-search");
+    busca(form);
   }
 };
+
+async function busca(form){
+  try{
+    const obj = {
+      method: "POST",
+      body: new FormData(form)
+    }
+
+    let resposta  = await fetch(form.getAttribute("action"), obj);
+    if(!resposta.ok) throw new Error(resposta.statusText);
+    var anuncios = await resposta.json();
+    
+    renderAnuncios(anuncios);
+  }
+  catch(e){
+    console.error(e);
+  }
+}
 
 function buscaAvancada() {
   const search = document.querySelector("#btn-advanced");
@@ -38,7 +63,7 @@ function buscaCategorias() {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
       // Converte a resposta json em objeto JS.
       var categorias = JSON.parse(xhr.responseText);
-      const divCategorias = document.getElementById("categorias");
+      const selectCategorias = document.getElementById("categoria");
 
       /**
        * Faz um forEach no array recebido pelo servidor
@@ -46,60 +71,19 @@ function buscaCategorias() {
        *
        * OBS: .toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, "")
        * serve para retirar a acentuação e transformar em minúsculo.
-       * O name, id e for sem ela ficaria igual o nome cadastrado no banco (ex: Veículos)
-       * e não funcionaria no request.
        */
       categorias.forEach(function (categoria) {
-        var div = document.createElement("div");
-        var input = document.createElement("input");
-        var label = document.createElement("label");
-        input.setAttribute("type", "checkbox");
-        input.setAttribute(
-          "name",
-          categoria.nome
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-        );
-        input.setAttribute(
-          "id",
-          categoria.nome
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-        );
-        input.setAttribute("value", categoria.codigo);
-        label.setAttribute(
-          "for",
-          categoria.nome
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-        );
-        label.textContent = categoria.nome;
+        var option = document.createElement("option");
+        option.setAttribute("type", "option");
+        option.setAttribute("value", categoria.nome);
+        option.textContent = categoria.nome;
 
-        div.appendChild(input);
-        div.appendChild(label);
-        divCategorias.appendChild(div);
+        selectCategorias.appendChild(option);
       });
     }
   };
 
   xhr.send();
-}
-
-async function loadProducts() {
-  try {
-    let resposta = await fetch("buscaProduto.php");
-    if (!resposta.ok) throw new Error(resposta.statusText);
-    var anuncios = await resposta.json();
-    
-  } catch (e) {
-    console.error(e);
-    return;
-  }
-
-  renderAnuncios(anuncios);
 }
 
 function renderAnuncios(anuncios) {

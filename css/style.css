@@ -173,6 +173,10 @@ header {
     width: 100%;
 }
 
+#categoria{
+    padding: 5px;
+}
+
 .card {
     border: 1px solid #ccc;
     border-radius: 10px;

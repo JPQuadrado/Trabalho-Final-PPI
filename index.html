@@ -27,30 +27,33 @@
                     
                     <div id="search-advanced">
                         <div id="search-advanced-title">
-                            <input type="radio" name="radio" id="search-title" value="search-title">
+                            <input type="radio" name="opcao" id="search-title" value="titulo">
                             <label for="search-title">Título</label>
                         </div>
                         <div id="search-advanced-description">
-                            <input type="radio" name="radio" id="search-description" value="search-description">
+                            <input type="radio" name="opcao" id="search-description" value="descricao">
                             <label for="search-description">Descrição</label>
                         </div>
                         <div id="search-advanced-price">
                             <div>
-                                <label for="price-min">Preço minimo: </label>
-                                <input type="number" name="price-min" id="price-min" step="any">
+                                <label for="priceMin">Preço minimo: </label>
+                                <input type="number" name="priceMin" id="priceMin" step="any">
                             </div>
                             <div>
-                                <label for="price-max">Preço máximo: </label>
-                                <input type="number" name="price-max" id="price-max" step="any">
+                                <label for="priceMax">Preço máximo: </label>
+                                <input type="number" name="priceMax" id="priceMax" step="any">
                             </div>
                         </div>
                         <div id="categorias">
-                            <label>Categoria: </label>
+                            <label for="categoria">Categoria: </label>
+                            <select name="categoria" id="categoria">
+                                <option value="">Selecione</option>
+                            </select>
                         </div>
                     </div>
                 </div>
                 <div id="search-div-btn">
-                    <button type="submit"><img src="img/lupa.png" alt=""></button>
+                    <button type="submit" id="btn-search"><img src="img/lupa.png" alt=""></button>
                 </div>
 
                 <div id="search-div-btn-advanced">
