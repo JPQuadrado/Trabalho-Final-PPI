@@ -10,30 +10,29 @@ $codAnuncio = $_GET["cod"];
  * Verificação ocorre a partir do número de linhas que existe na query resultada.
  * Se for igual a 0 (não existe anuncio com o ID), retorna false, se for maior (existe um anuncio), retorna true.
  */
-function verifyAnuncio($pdo, $codAnuncio){
+function verifyAnuncio($pdo, $codAnuncio)
+{
     $sql = <<<SQL
         SELECT codigo
         FROM anuncio
         WHERE codigo = ?
         SQL;
 
-    try{
+    try {
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$codAnuncio]);
 
         return $stmt->rowCount() > 0;
-    }
-    catch(Exception $e){
+    } catch (Exception $e) {
         exit("Erro: " . $e->getMessage());
     }
 }
 
 // Se não existir anuncio, é redirecionado ao arquivo index na raiz.
-if(!verifyAnuncio($pdo, $codAnuncio)){
+if (!verifyAnuncio($pdo, $codAnuncio)) {
     header("Location: /");
     exit();
-}
-else{
+} else {
     $sqlFotos = <<<SQL
         SELECT nome_arquivo_foto
         FROM foto
@@ -46,14 +45,13 @@ else{
         WHERE codigo = ?
         SQL;
 
-    try{
+    try {
         $stmtAnuncio = $pdo->prepare($sqlAnuncio);
         $stmtAnuncio->execute([$codAnuncio]);
 
         $stmtFotos = $pdo->prepare($sqlFotos);
         $stmtFotos->execute([$codAnuncio]);
-    }
-    catch(Exception $e){
+    } catch (Exception $e) {
         exit("Erro: " . $e->getMessage());
     }
 
@@ -69,7 +67,7 @@ else{
         $descricao = htmlspecialchars($row['descricao']);
         $preco = htmlspecialchars($row['preco']);
     }
-    
+
     /**
      * Mostra dinamicamente as informações do anuncio detalhado.
      * Utiliza atributo data em html para mandar o array $fotos.
@@ -137,5 +135,3 @@ else{
     </html>
     HTML;
 }
-
-?>
